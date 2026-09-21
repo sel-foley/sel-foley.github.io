@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SelFoley — Text-Guided Selective Video-to-Audio Generation</title>
+<meta name="description" content="SelFoley: text-guided selective video-to-audio generation via conditional source-isolation states, with the human-curated SelFoley3.3K multitrack dataset.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="overview">
+<nav class="topnav" aria-label="Pages">
+  <div class="wrap navrow">
+    <a class="brand" href="index.html">SelFoley<small>anonymous submission</small></a>
+    <a class="nl" data-page="overview" href="index.html">Overview</a>
+    <a class="nl" data-page="dataset" href="dataset.html">Dataset</a>
+    <a class="nl" data-page="results" href="results.html">Results</a>
+    <button id="themeToggle" class="navbtn" title="Light / dark">◐</button>
+  </div>
+</nav>
+
+<header class="hero wrap">
+  <div class="eyebrow"><span>ICLR 2027 submission</span><span class="sep">·</span><span>anonymous authors</span><span class="sep">·</span><span>project page</span></div>
+  <h1>SelFoley: Text-Guided Selective Video-to-Audio Generation via Conditional Source-Isolation States <span class="ver">public release v0.1</span></h1>
+  <p class="lede">Users often want one specific sound from a video, not every sound that is visible in it. SelFoley pairs a human-curated multitrack dataset with a small module, CSIO, that lets a frozen audio-conditioned V2A model generate only the source a text query asks for.</p>
+  <p class="authors">Anonymous authors. Names, affiliations and code links follow after the review period. The release name of the system on this page is SelFoley-CSIO v0.1; later versions will be listed alongside it.</p>
+  <div class="links">
+    <a class="btn ghost" href="dataset.html">SelFoley3.3K dataset →</a>
+    <a class="btn ghost" href="results.html">Model results →</a>
+    <a class="btn disabled" aria-disabled="true">Paper · after review</a>
+    <a class="btn disabled" aria-disabled="true">Code · after review</a>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="sec" id="abstract">
+    <div class="sec-head"><h2>Abstract</h2></div>
+    <div class="abstract">
+      <p>Text-guided selective video-to-audio generation is important because users often want one specific sound, rather than every sound visible in a video. However, progress has been limited by the lack of clean multitrack data, and previous approaches such as SelVA rely on automatically constructed, noisy supervision. We address this limitation with a human-curated 3.3K multitrack dataset containing videos, isolated source stems, and source-level captions.</p>
+      <p>More importantly, we rethink selective V2A as an audio-conditioned V2A problem. Instead of training a text-only model to learn every possible sound, we exploit pretrained AC-V2A models that already transfer an audio reference into a video. By probing their conditioning pathways, we find that source selection is strongly controlled by the semantic representation of the reference audio: a clean reference can suppress unrelated visible events, not merely transfer timbre. Based on this finding, we propose CSIO, which converts a text query into the source-selective reference representation normally obtained from audio. This allows a frozen AC-V2A model to perform text-guided selective generation without massive end-to-end training, combining text-based source selection with the strong synchronization and acoustic rendering ability of pretrained AC-V2A models.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="idea">
+    <div class="sec-head">
+      <h2>In three steps</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="box"><p class="kicker">Data</p><h3>Clean multitrack supervision</h3><p>SelFoley3.3K: 3,357 videos with isolated source stems and a caption per source, every stem audited by human listeners. Prior text-guided models learned from automatically constructed, noisy targets instead.</p></div>
+      <div class="box"><p class="kicker">Finding</p><h3>The reference selects the source</h3><p>Probing the conditioning pathways of pretrained audio-conditioned V2A models shows that source selection is governed by the semantic representation of the reference audio. A clean reference suppresses unrelated visible events; it does not only transfer timbre.</p></div>
+      <div class="box"><p class="kicker">Method</p><h3>CSIO: text in place of the reference</h3><p>CSIO converts a text query into the source-selective reference representation that the model normally obtains from audio. The AC-V2A backbone stays frozen and keeps its synchronization and acoustic rendering ability.</p></div>
+    </div>
+  </section>
+
+  <section class="sec" id="observation">
+    <div class="sec-head">
+      <h2>Probing the conditioning pathways</h2>
+      <p>With a clean, single-source reference the model renders that source and leaves the other visible events silent; with a mixed reference the mixture comes back. Intervening on the semantic representation of the reference moves the selection, which is why CSIO targets exactly that representation.</p>
+    </div>
+    <figure class="diagram">
+      <svg viewBox="0 0 900 230" role="img" aria-label="Placeholder for the clean-versus-mixed reference analysis">
+        <rect x="1" y="1" width="898" height="228" rx="12" class="dg-figph"/>
+        <g font-family="Inter, sans-serif">
+          <text x="450" y="48" text-anchor="middle" class="dg-t">Clean vs. mixed reference · semantic pathway intact vs. intervened</text>
+          <text x="450" y="70" text-anchor="middle" class="dg-s">figure and numbers follow from the paper</text>
+          <g transform="translate(250,92)">
+            <rect x="0" y="0" width="190" height="52" rx="8" class="dg-box"/><text x="95" y="24" text-anchor="middle" class="dg-t">clean · intact</text><text x="95" y="42" text-anchor="middle" class="dg-s">isolated source</text>
+            <rect x="210" y="0" width="190" height="52" rx="8" class="dg-box"/><text x="305" y="24" text-anchor="middle" class="dg-t">clean · intervened</text><text x="305" y="42" text-anchor="middle" class="dg-s">selection weakens</text>
+            <rect x="0" y="66" width="190" height="52" rx="8" class="dg-box"/><text x="95" y="90" text-anchor="middle" class="dg-t">mixed · intact</text><text x="95" y="108" text-anchor="middle" class="dg-s">mixture returns</text>
+            <rect x="210" y="66" width="190" height="52" rx="8" class="dg-box"/><text x="305" y="90" text-anchor="middle" class="dg-t">mixed · intervened</text><text x="305" y="108" text-anchor="middle" class="dg-s">mixture</text>
+          </g>
+        </g>
+      </svg>
+    </figure>
+  </section>
+
+  <section class="sec" id="method">
+    <div class="sec-head">
+      <h2>How SelFoley generates one source</h2>
+      <p>A text query goes through CSIO and comes out as the source-selective reference representation. The frozen AC-V2A backbone receives it in place of a reference clip, together with the silent video, and renders the selected source alone. No reference audio is needed at inference and no end-to-end retraining of the backbone.</p>
+    </div>
+    <figure class="diagram">
+      <svg viewBox="0 0 900 250" role="img" aria-label="A text query enters CSIO, which outputs the source-selective reference representation; with the silent video it drives the frozen AC-V2A backbone to render one isolated source.">
+        <defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="currentColor"/></marker></defs>
+        <g font-family="Inter, sans-serif">
+          <rect x="20" y="40" width="200" height="56" rx="10" class="dg-box"/>
+          <text x="36" y="63" class="dg-t">text query</text><text x="36" y="84" class="dg-s">“desk telephone ringing”</text>
+          <rect x="20" y="150" width="200" height="56" rx="10" class="dg-box"/>
+          <text x="36" y="173" class="dg-t">silent video</text><text x="36" y="194" class="dg-s">frame and sync features</text>
+          <rect x="290" y="34" width="180" height="68" rx="10" class="dg-dark"/>
+          <text x="380" y="62" text-anchor="middle" class="dg-inv">CSIO</text><text x="380" y="84" text-anchor="middle" class="dg-inv-s">text → reference representation</text>
+          <text x="492" y="56" class="dg-s">source-selective</text><text x="492" y="72" class="dg-s">reference representation</text>
+          <rect x="540" y="120" width="190" height="90" rx="12" class="dg-box"/>
+          <text x="635" y="152" text-anchor="middle" class="dg-t">AC-V2A backbone</text><text x="635" y="172" text-anchor="middle" class="dg-s">pretrained, frozen</text><text x="635" y="192" text-anchor="middle" class="dg-s">reference pathway fed by CSIO</text>
+          <rect x="780" y="140" width="100" height="50" rx="10" class="dg-box"/>
+          <text x="830" y="161" text-anchor="middle" class="dg-t">one source</text><text x="830" y="179" text-anchor="middle" class="dg-s">synchronised</text>
+          <path d="M220 68 L290 68" class="dg-line" marker-end="url(#a2)"/>
+          <path d="M470 68 C 520 68, 520 140, 540 140" class="dg-line dg-acc" marker-end="url(#a2)"/>
+          <path d="M220 178 L540 178" class="dg-line" marker-end="url(#a2)"/>
+          <path d="M730 165 L780 165" class="dg-line" marker-end="url(#a2)"/>
+          <text x="300" y="232" class="dg-s">no reference audio at inference — CSIO supplies the representation</text>
+        </g>
+      </svg>
+      <figcaption>Schematic. CSIO is trained on SelFoley3.3K, where every clip comes with isolated stems and a caption per source.</figcaption>
+    </figure>
+  </section>
+
+  <section class="sec" id="data">
+    <div class="sec-head">
+      <div class="row"><h2>What a training example looks like</h2><a class="btn ghost" href="dataset.html">Browse all 30 examples →</a></div>
+      <p>Each SelFoley3.3K clip is a video with its original mix and one isolated stem per source, each stem carrying a caption and its active intervals. Press a lane to hear it with the video from the start; the shaded bands mark where that source is active.</p>
+    </div>
+    <div class="grid grid-3" data-grid="teaser"></div>
+  </section>
+
+  <section class="sec" id="dataset">
+    <div class="sec-head"><h2>SelFoley3.3K</h2></div>
+    <div class="tiles">
+      <div class="tile"><div class="v">3,357</div><div class="k">clips</div></div>
+      <div class="tile"><div class="v">5,383</div><div class="k">human-audited stems</div></div>
+      <div class="tile"><div class="v">15</div><div class="k">reviewers, every stem listened to</div></div>
+      <div class="tile"><div class="v">3</div><div class="k">source collections: VGGSound, FoleyBench, UnAV-100</div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="results">
+    <div class="sec-head">
+      <div class="row"><h2>Results</h2><a class="btn ghost" href="results.html">Results page →</a></div>
+      <p>The results page compares systems on identical video–caption rows. Model outputs are added as the evaluation is finalised; the layout and the model list are already in place.</p>
+    </div>
+  </section>
+
+  <section class="sec" id="cite">
+    <div class="sec-head"><h2>Citation</h2></div>
+    <pre class="bib">@inproceedings{anonymous2027selfoley,
+  title     = {SelFoley: Text-Guided Selective Video-to-Audio Generation via Conditional Source-Isolation States},
+  author    = {Anonymous},
+  booktitle = {Submitted to ICLR},
+  year      = {2027}
+}</pre>
+  </section>
+
+</main>
+<footer class="wrap foot">
+  <nav><a href="index.html">Overview</a><a href="dataset.html">Dataset</a><a href="results.html">Results</a></nav>
+  <p>Anonymous submission under double-blind review. Clips shown here are drawn from publicly available video collections (VGGSound, FoleyBench, UnAV-100) and are used for research purposes only. Player audio runs through the Web Audio API so that every lane shares one clock with the video.</p>
+</footer>
+<script src="js/player.js"></script>
+<script src="js/expand.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

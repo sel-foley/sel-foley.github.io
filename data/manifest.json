@@ -1,0 +1,1241 @@
+{
+ "dataset": {
+  "clips": "3,357",
+  "stems": "5,383",
+  "reviewers": "15"
+ },
+ "dataset_clips": [
+  {
+   "id": "ds01",
+   "n": 1,
+   "origin": "FoleyBench-5K",
+   "duration": 10.043,
+   "video": "media/dataset/01/video.mp4",
+   "poster": "media/dataset/01/poster.jpg",
+   "mix": "media/dataset/01/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "electromagnet buzzing while energized",
+     "intervals": [
+      [
+       0.0,
+       3.43
+      ]
+     ],
+     "audio": "media/dataset/01/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "desk telephone ringing",
+     "intervals": [
+      [
+       5.76,
+       8.48
+      ]
+     ],
+     "audio": "media/dataset/01/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds02",
+   "n": 2,
+   "origin": "FoleyBench-5K",
+   "duration": 10.0,
+   "video": "media/dataset/02/video.mp4",
+   "poster": "media/dataset/02/poster.jpg",
+   "mix": "media/dataset/02/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Car engine and drivetrain",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/02/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Gear-shift mechanical sounds",
+     "intervals": [
+      [
+       2.22,
+       2.55
+      ],
+      [
+       4.24,
+       4.92
+      ],
+      [
+       9.42,
+       9.98
+      ]
+     ],
+     "audio": "media/dataset/02/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds03",
+   "n": 3,
+   "origin": "UnAV-100",
+   "duration": 10.0,
+   "video": "media/dataset/03/video.mp4",
+   "poster": "media/dataset/03/poster.jpg",
+   "mix": "media/dataset/03/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Woman singing",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/03/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Ukulele",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/03/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds04",
+   "n": 4,
+   "origin": "UnAV-100",
+   "duration": 10.0,
+   "video": "media/dataset/04/video.mp4",
+   "poster": "media/dataset/04/poster.jpg",
+   "mix": "media/dataset/04/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "skateboard rolling",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/04/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "skateboard clacks",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/04/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds05",
+   "n": 5,
+   "origin": "UnAV-100",
+   "duration": 10.0,
+   "video": "media/dataset/05/video.mp4",
+   "poster": "media/dataset/05/poster.jpg",
+   "mix": "media/dataset/05/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "car engine idle",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/05/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "man speaking",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/05/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds06",
+   "n": 6,
+   "origin": "UnAV-100",
+   "duration": 10.0,
+   "video": "media/dataset/06/video.mp4",
+   "poster": "media/dataset/06/poster.jpg",
+   "mix": "media/dataset/06/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "man vocalizing",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/06/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "sports car engine",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/06/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds07",
+   "n": 7,
+   "origin": "UnAV-100",
+   "duration": 10.0,
+   "video": "media/dataset/07/video.mp4",
+   "poster": "media/dataset/07/poster.jpg",
+   "mix": "media/dataset/07/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "trumpet section",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/07/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "string section",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/07/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds08",
+   "n": 8,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/08/video.mp4",
+   "poster": "media/dataset/08/poster.jpg",
+   "mix": "media/dataset/08/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Baby sneezes",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/08/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Woman laughter",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/08/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds09",
+   "n": 9,
+   "origin": "FoleyBench-5K",
+   "duration": 10.01,
+   "video": "media/dataset/09/video.mp4",
+   "poster": "media/dataset/09/poster.jpg",
+   "mix": "media/dataset/09/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "rocket engine roar",
+     "intervals": [
+      [
+       0.0,
+       2.2
+      ]
+     ],
+     "audio": "media/dataset/09/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "rocket explosion and sustained fireball roar",
+     "intervals": [
+      [
+       2.15,
+       2.7
+      ],
+      [
+       2.35,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/09/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds10",
+   "n": 10,
+   "origin": "FoleyBench-5K",
+   "duration": 10.01,
+   "video": "media/dataset/10/video.mp4",
+   "poster": "media/dataset/10/poster.jpg",
+   "mix": "media/dataset/10/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Footsteps crunching on ice",
+     "intervals": [
+      [
+       0.0,
+       1.15
+      ],
+      [
+       7.78,
+       10.01
+      ]
+     ],
+     "audio": "media/dataset/10/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Tool combining",
+     "intervals": [
+      [
+       1.12,
+       2.05
+      ],
+      [
+       2.18,
+       3.47
+      ],
+      [
+       3.76,
+       3.9
+      ],
+      [
+       4.48,
+       6.66
+      ]
+     ],
+     "audio": "media/dataset/10/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds11",
+   "n": 11,
+   "origin": "FoleyBench-5K",
+   "duration": 8.041,
+   "video": "media/dataset/11/video.mp4",
+   "poster": "media/dataset/11/poster.jpg",
+   "mix": "media/dataset/11/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Cue strike and billiard ball collisions",
+     "intervals": [
+      [
+       0.08,
+       0.14
+      ],
+      [
+       0.3,
+       1.02
+      ]
+     ],
+     "audio": "media/dataset/11/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Sustained crowd applause",
+     "intervals": [
+      [
+       2.56,
+       6.42
+      ]
+     ],
+     "audio": "media/dataset/11/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds12",
+   "n": 12,
+   "origin": "FoleyBench-5K",
+   "duration": 8.008,
+   "video": "media/dataset/12/video.mp4",
+   "poster": "media/dataset/12/poster.jpg",
+   "mix": "media/dataset/12/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "stadium crowd",
+     "intervals": [
+      [
+       0.0,
+       8.01
+      ]
+     ],
+     "audio": "media/dataset/12/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "soccer ball kicks",
+     "intervals": [
+      [
+       0.07,
+       0.13
+      ],
+      [
+       0.48,
+       0.55
+      ],
+      [
+       0.83,
+       0.99
+      ],
+      [
+       2.02,
+       2.21
+      ],
+      [
+       3.78,
+       3.84
+      ],
+      [
+       4.48,
+       4.58
+      ],
+      [
+       6.11,
+       6.34
+      ],
+      [
+       7.1,
+       7.18
+      ]
+     ],
+     "audio": "media/dataset/12/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds13",
+   "n": 13,
+   "origin": "FoleyBench-5K",
+   "duration": 10.0,
+   "video": "media/dataset/13/video.mp4",
+   "poster": "media/dataset/13/poster.jpg",
+   "mix": "media/dataset/13/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Cookware and utensil preparation",
+     "intervals": [
+      [
+       0.08,
+       0.96
+      ],
+      [
+       1.48,
+       2.56
+      ],
+      [
+       3.74,
+       5.42
+      ]
+     ],
+     "audio": "media/dataset/13/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Footsteps",
+     "intervals": [
+      [
+       6.84,
+       8.54
+      ]
+     ],
+     "audio": "media/dataset/13/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds14",
+   "n": 14,
+   "origin": "FoleyBench-5K",
+   "duration": 9.04,
+   "video": "media/dataset/14/video.mp4",
+   "poster": "media/dataset/14/poster.jpg",
+   "mix": "media/dataset/14/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Impact with a wooden barrier",
+     "intervals": [
+      [
+       1.1,
+       3.42
+      ],
+      [
+       3.4,
+       3.88
+      ]
+     ],
+     "audio": "media/dataset/14/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Horn effect",
+     "intervals": [
+      [
+       7.92,
+       8.13
+      ],
+      [
+       8.16,
+       8.36
+      ],
+      [
+       8.74,
+       8.83
+      ]
+     ],
+     "audio": "media/dataset/14/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds15",
+   "n": 15,
+   "origin": "FoleyBench-5K",
+   "duration": 9.009,
+   "video": "media/dataset/15/video.mp4",
+   "poster": "media/dataset/15/poster.jpg",
+   "mix": "media/dataset/15/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Hand rubbing and tapping on tabletop",
+     "intervals": [
+      [
+       0.05,
+       0.62
+      ],
+      [
+       0.82,
+       0.96
+      ],
+      [
+       2.98,
+       3.2
+      ],
+      [
+       3.36,
+       3.58
+      ],
+      [
+       3.74,
+       4.28
+      ],
+      [
+       4.62,
+       4.86
+      ],
+      [
+       5.0,
+       5.34
+      ]
+     ],
+     "audio": "media/dataset/15/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Bowl contacting tabletop",
+     "intervals": [
+      [
+       6.9,
+       7.82
+      ],
+      [
+       8.5,
+       9.01
+      ]
+     ],
+     "audio": "media/dataset/15/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds16",
+   "n": 16,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/16/video.mp4",
+   "poster": "media/dataset/16/poster.jpg",
+   "mix": "media/dataset/16/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Acoustic guitar",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/16/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Singing voice",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/16/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds17",
+   "n": 17,
+   "origin": "UnAV-100",
+   "duration": 10.0,
+   "video": "media/dataset/17/video.mp4",
+   "poster": "media/dataset/17/poster.jpg",
+   "mix": "media/dataset/17/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Harmonica",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/17/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Audience applause",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/17/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds18",
+   "n": 18,
+   "origin": "UnAV-100",
+   "duration": 10.0,
+   "video": "media/dataset/18/video.mp4",
+   "poster": "media/dataset/18/poster.jpg",
+   "mix": "media/dataset/18/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "women laughing",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/18/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "woman speaking",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/18/stem_01.wav"
+    },
+    {
+     "id": "stem_02",
+     "caption": "street ambience",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/18/stem_02.wav"
+    },
+    {
+     "id": "stem_03",
+     "caption": "women vocal reactions",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/18/stem_03.wav"
+    },
+    {
+     "id": "stem_04",
+     "caption": "ride motion noise",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/18/stem_04.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds19",
+   "n": 19,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/19/video.mp4",
+   "poster": "media/dataset/19/poster.jpg",
+   "mix": "media/dataset/19/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "group vocalization",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/19/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "shoe steps",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/19/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds20",
+   "n": 20,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/20/video.mp4",
+   "poster": "media/dataset/20/poster.jpg",
+   "mix": "media/dataset/20/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "choir singing",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/20/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Choral singing",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/20/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds21",
+   "n": 21,
+   "origin": "UnAV-100",
+   "duration": 10.0,
+   "video": "media/dataset/21/video.mp4",
+   "poster": "media/dataset/21/poster.jpg",
+   "mix": "media/dataset/21/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "bowed string soloist",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/21/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "string orchestra",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/21/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds22",
+   "n": 22,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/22/video.mp4",
+   "poster": "media/dataset/22/poster.jpg",
+   "mix": "media/dataset/22/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "trombone",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/22/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "tuba",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/22/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds23",
+   "n": 23,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/23/video.mp4",
+   "poster": "media/dataset/23/poster.jpg",
+   "mix": "media/dataset/23/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Whistling",
+     "intervals": [
+      [
+       0.05,
+       1.72
+      ],
+      [
+       1.92,
+       3.9
+      ],
+      [
+       4.22,
+       5.82
+      ],
+      [
+       6.92,
+       9.82
+      ]
+     ],
+     "audio": "media/dataset/23/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Women speaking",
+     "intervals": [
+      [
+       4.42,
+       5.78
+      ],
+      [
+       6.18,
+       9.78
+      ]
+     ],
+     "audio": "media/dataset/23/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds24",
+   "n": 24,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/24/video.mp4",
+   "poster": "media/dataset/24/poster.jpg",
+   "mix": "media/dataset/24/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Banjo",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/24/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Male vocal",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/24/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds25",
+   "n": 25,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/25/video.mp4",
+   "poster": "media/dataset/25/poster.jpg",
+   "mix": "media/dataset/25/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Hooded man speaking",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/25/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Ocean surf",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/25/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds26",
+   "n": 26,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/26/video.mp4",
+   "poster": "media/dataset/26/poster.jpg",
+   "mix": "media/dataset/26/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Woman's voice",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/26/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Man's voice",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/26/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds27",
+   "n": 27,
+   "origin": "UnAV-100",
+   "duration": 10.0,
+   "video": "media/dataset/27/video.mp4",
+   "poster": "media/dataset/27/poster.jpg",
+   "mix": "media/dataset/27/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "newborn crying",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/27/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Man speaking",
+     "intervals": [
+      [
+       0.25,
+       1.0
+      ],
+      [
+       1.76,
+       2.51
+      ],
+      [
+       4.02,
+       4.52
+      ],
+      [
+       9.79,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/27/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds28",
+   "n": 28,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/28/video.mp4",
+   "poster": "media/dataset/28/poster.jpg",
+   "mix": "media/dataset/28/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "crowd vocalizations",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/28/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "street traffic noise",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/28/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds29",
+   "n": 29,
+   "origin": "UnAV-100",
+   "duration": 10.0,
+   "video": "media/dataset/29/video.mp4",
+   "poster": "media/dataset/29/poster.jpg",
+   "mix": "media/dataset/29/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "flute playing",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/29/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "harp playing",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/29/stem_01.wav"
+    }
+   ]
+  },
+  {
+   "id": "ds30",
+   "n": 30,
+   "origin": "UnAV-100",
+   "duration": 10.01,
+   "video": "media/dataset/30/video.mp4",
+   "poster": "media/dataset/30/poster.jpg",
+   "mix": "media/dataset/30/mix.wav",
+   "stems": [
+    {
+     "id": "stem_00",
+     "caption": "Flute",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/30/stem_00.wav"
+    },
+    {
+     "id": "stem_01",
+     "caption": "Audience applause",
+     "intervals": [
+      [
+       0.0,
+       10.0
+      ]
+     ],
+     "audio": "media/dataset/30/stem_01.wav"
+    }
+   ]
+  }
+ ],
+ "teaser": [
+  "ds01",
+  "ds08",
+  "ds29"
+ ],
+ "results_rows": [
+  {
+   "id": "r01_1",
+   "n": 1,
+   "origin": "FoleyBench-5K",
+   "video": "media/dataset/01/video.mp4",
+   "poster": "media/dataset/01/poster.jpg",
+   "duration": 10.043,
+   "caption": "desk telephone ringing",
+   "gt": "media/dataset/01/stem_01.wav",
+   "outputs": {}
+  },
+  {
+   "id": "r04_1",
+   "n": 4,
+   "origin": "UnAV-100",
+   "video": "media/dataset/04/video.mp4",
+   "poster": "media/dataset/04/poster.jpg",
+   "duration": 10.0,
+   "caption": "skateboard clacks",
+   "gt": "media/dataset/04/stem_01.wav",
+   "outputs": {}
+  },
+  {
+   "id": "r08_0",
+   "n": 8,
+   "origin": "UnAV-100",
+   "video": "media/dataset/08/video.mp4",
+   "poster": "media/dataset/08/poster.jpg",
+   "duration": 10.01,
+   "caption": "Baby sneezes",
+   "gt": "media/dataset/08/stem_00.wav",
+   "outputs": {}
+  },
+  {
+   "id": "r12_1",
+   "n": 12,
+   "origin": "FoleyBench-5K",
+   "video": "media/dataset/12/video.mp4",
+   "poster": "media/dataset/12/poster.jpg",
+   "duration": 8.008,
+   "caption": "soccer ball kicks",
+   "gt": "media/dataset/12/stem_01.wav",
+   "outputs": {}
+  },
+  {
+   "id": "r22_0",
+   "n": 22,
+   "origin": "UnAV-100",
+   "video": "media/dataset/22/video.mp4",
+   "poster": "media/dataset/22/poster.jpg",
+   "duration": 10.01,
+   "caption": "trombone",
+   "gt": "media/dataset/22/stem_00.wav",
+   "outputs": {}
+  },
+  {
+   "id": "r29_0",
+   "n": 29,
+   "origin": "UnAV-100",
+   "video": "media/dataset/29/video.mp4",
+   "poster": "media/dataset/29/poster.jpg",
+   "duration": 10.0,
+   "caption": "flute playing",
+   "gt": "media/dataset/29/stem_00.wav",
+   "outputs": {}
+  }
+ ]
+}

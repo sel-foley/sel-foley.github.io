@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SelFoley — model results</title>
+<meta name="description" content="Systems compared on identical video–caption rows, one lane per model.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="results">
+<nav class="topnav" aria-label="Pages">
+  <div class="wrap navrow">
+    <a class="brand" href="index.html">SelFoley<small>anonymous submission</small></a>
+    <a class="nl" data-page="overview" href="index.html">Overview</a>
+    <a class="nl" data-page="dataset" href="dataset.html">Dataset</a>
+    <a class="nl" data-page="results" href="results.html">Results</a>
+    <button id="themeToggle" class="navbtn" title="Light / dark">◐</button>
+  </div>
+</nav>
+
+<header class="pagehead wrap">
+  <div class="eyebrow"><span>Results</span><span class="sep">·</span><span>listening comparison</span></div>
+  <h1>Model results</h1>
+  <p class="lede">Every card is one video and one caption. Lanes are the systems; press a lane to hear its output with the video from the start. The reference stem from SelFoley3.3K is the first lane. Model outputs are added as the evaluation is finalised.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="sec" id="models" style="padding-top:8px">
+    <div class="sec-head">
+      <h2>Systems compared</h2>
+      <p>Names below come from a small configuration file and will be finalised with the paper.</p>
+    </div>
+    <div class="legend" data-model-legend></div>
+  </section>
+
+  <section class="sec" id="rows">
+    <div class="sec-head">
+      <h2>Same video, same caption</h2>
+      <p>Rows use SelFoley3.3K clips so that a human-verified reference stem is available for every caption.</p>
+    </div>
+    <div class="grid grid-3" data-grid="results" data-step="12" data-empty="Result rows are added with the evaluation."></div>
+  </section>
+
+</main>
+<footer class="wrap foot">
+  <nav><a href="index.html">Overview</a><a href="dataset.html">Dataset</a><a href="results.html">Results</a></nav>
+  <p>Anonymous submission under double-blind review. Clips shown here are drawn from publicly available video collections (VGGSound, FoleyBench, UnAV-100) and are used for research purposes only. Player audio runs through the Web Audio API so that every lane shares one clock with the video.</p>
+</footer>
+<script src="js/player.js"></script>
+<script src="js/expand.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>

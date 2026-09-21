@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SelFoley3.3K — human-audited multi-stem dataset</title>
+<meta name="description" content="Video clips with an original mix, one clean stem per source, a caption and active intervals for every stem, verified by fifteen reviewers.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="dataset">
+<nav class="topnav" aria-label="Pages">
+  <div class="wrap navrow">
+    <a class="brand" href="index.html">SelFoley<small>anonymous submission</small></a>
+    <a class="nl" data-page="overview" href="index.html">Overview</a>
+    <a class="nl" data-page="dataset" href="dataset.html">Dataset</a>
+    <a class="nl" data-page="results" href="results.html">Results</a>
+    <button id="themeToggle" class="navbtn" title="Light / dark">◐</button>
+  </div>
+</nav>
+
+<header class="pagehead wrap">
+  <div class="eyebrow"><span>Dataset</span><span class="sep">·</span><span>release after review</span></div>
+  <h1>SelFoley3.3K</h1>
+  <p class="lede">A human-curated multitrack dataset for selective video-to-audio: 3,357 videos with isolated source stems and source-level captions. Every clip comes with its original mix, one stem per source, and a caption and active intervals for each stem. Fifteen reviewers listened to every stem.</p>
+</header>
+
+<main class="wrap">
+
+  <section class="sec" id="stats" style="padding-top:8px">
+    <div class="tiles">
+      <div class="tile"><div class="v">3,357</div><div class="k">clips</div></div>
+      <div class="tile"><div class="v">5,383</div><div class="k">human-audited stems</div></div>
+      <div class="tile"><div class="v">15</div><div class="k">reviewers</div></div>
+      <div class="tile"><div class="v">3</div><div class="k">source collections: VGGSound, FoleyBench, UnAV-100</div></div>
+    </div>
+  </section>
+
+  <section class="sec" id="pipeline">
+    <div class="sec-head">
+      <h2>How it was built</h2>
+      <p>Candidates are proposed automatically and then audited by people. Nothing reaches the dataset without a human having listened to it.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div><b>Reasoner proposal</b><span>A vision-language reasoner lists the sound sources of each clip and drafts a caption for every source.</span></div></div>
+      <div class="step"><div><b>Candidate stem bank</b><span>A text-promptable audio separation model extracts one stem candidate per proposed source.</span></div></div>
+      <div class="step"><div><b>Full listening by 15 reviewers</b><span>Every candidate stem is listened to against its caption and the original mix; unclear or leaking stems are rejected.</span></div></div>
+      <div class="step"><div><b>Caption cleanup</b><span>Captions are corrected to describe exactly what the stem contains, concisely.</span></div></div>
+      <div class="step"><div><b>Sibling overlap re-audit</b><span>Stems of the same clip are compared against each other once more so that sibling sources stay distinct.</span></div></div>
+    </div>
+    <p class="fine" style="margin-top:14px">Stems are a subset of the mix, not a decomposition of it: background sound that belongs to no proposed source stays in the original mix only.</p>
+  </section>
+
+  <section class="sec" id="browse">
+    <div class="sec-head">
+      <div class="row"><h2>Examples</h2><span class="fine"><span data-stat="shown_clips">30</span> clips · <span data-stat="shown_stems">63</span> stems</span></div>
+      <p>Thirty clips chosen to cover ambience and action, human and non-human sources, realistic and animated footage, transient and continuous sounds. Each card shows the video, the original mix and every stem with its caption; shaded bands on a stem mark its active intervals. Press a lane to hear it with the video from the start. Only one lane plays at a time.</p>
+    </div>
+    <div class="filters" data-filters></div>
+    <div class="grid grid-3" data-grid="dataset" data-step="12"></div>
+  </section>
+
+  <section class="sec" id="release">
+    <div class="sec-head"><h2>Release</h2></div>
+    <p class="narrow muted">The full dataset, stem captions, active intervals and the evaluation protocol will be released after the review period. Videos are referenced by their public identifiers; stems are distributed for research use.</p>
+  </section>
+
+</main>
+<footer class="wrap foot">
+  <nav><a href="index.html">Overview</a><a href="dataset.html">Dataset</a><a href="results.html">Results</a></nav>
+  <p>Anonymous submission under double-blind review. Clips shown here are drawn from publicly available video collections (VGGSound, FoleyBench, UnAV-100) and are used for research purposes only. Player audio runs through the Web Audio API so that every lane shares one clock with the video.</p>
+</footer>
+<script src="js/player.js"></script>
+<script src="js/expand.js"></script>
+<script src="js/site.js"></script>
+</body>
+</html>
