@@ -1,39 +1,36 @@
-# SelFoley — project page
+# SelFoley: Text-Guided Selective Video-to-Audio Generation via Conditional Source-Isolation States
 
-Project page for an anonymous ICLR 2027 submission:
-**SelFoley: Text-Guided Selective Video-to-Audio Generation via Conditional Source-Isolation States**.
+Project page for an anonymous ICLR 2027 submission → **https://sel-foley.github.io/**
 
-Live page: https://sel-foley.github.io/
+## Abstract
 
-| page | contents |
-|---|---|
-| `index.html` | abstract, the conditioning-pathway finding, and how CSIO turns a text query into the source-selective reference representation |
-| `dataset.html` | SelFoley3.3K statistics, how it was built, and 30 example clips with their original mix and isolated stems |
-| `results.html` | systems compared on identical video–caption rows; model outputs are added as the evaluation is finalised |
+Text-guided selective video-to-audio generation is important because users often want one specific
+sound, rather than every sound visible in a video. However, progress has been limited by the lack of
+clean multitrack data, and previous approaches such as SelVA rely on automatically constructed, noisy
+supervision. We address this limitation with a human-curated 3.3K multitrack dataset containing
+videos, isolated source stems, and source-level captions. More importantly, we rethink selective V2A
+as an audio-conditioned V2A problem. Instead of training a text-only model to learn every possible
+sound, we exploit pretrained AC-V2A models that already transfer an audio reference into a video. By
+probing their conditioning pathways, we find that source selection is strongly controlled by the
+semantic representation of the reference audio: a clean reference can suppress unrelated visible
+events, not merely transfer timbre. Based on this finding, we propose CSIO, which converts a text
+query into the source-selective reference representation normally obtained from audio. This allows a
+frozen AC-V2A model to perform text-guided selective generation without massive end-to-end training,
+combining text-based source selection with the strong synchronization and acoustic rendering ability
+of pretrained AC-V2A models.
 
-Plain HTML, CSS and JavaScript, no build step and no dependencies. Audio plays through the Web Audio
-API so that every lane shares one clock with the video: pressing a lane starts that row's video from
-the beginning, and only one lane plays at a time. Clips can be opened in an expanded view.
+## Pages
 
-## Examples on the dataset page
+- **Overview** (`index.html`) — the finding about conditioning pathways and how CSIO uses it
+- **Dataset** (`dataset.html`) — SelFoley3.3K, with 30 example clips: video, original mix, and each isolated stem with its caption and active intervals
+- **Results** (`results.html`) — systems compared on identical video–caption rows; outputs are added as the evaluation is finalised
 
-Each card is one clip: the video, the original mix, and one isolated stem per source. Every stem
-carries its caption and the intervals where that source is active, drawn as shaded bands on the
-waveform. Stems are a subset of the mix rather than a decomposition of it, so background sound that
-belongs to no annotated source stays in the original mix only.
+Pressing a lane plays it with that row's video from the beginning; one lane plays at a time.
 
-## Running it locally
+## Notes
 
-Any static server works, but seeking inside the videos needs HTTP range requests:
+Plain HTML, CSS and JavaScript, no build step. Serve with any static server that supports HTTP range
+requests (`npx serve .`); `python3 -m http.server` does not, so seeking will not work.
 
-```bash
-npx serve .          # supports ranges
-```
-
-`python3 -m http.server` does not answer range requests, so clicking a waveform will jump to 0.
-
-## Data and licensing
-
-Clips are drawn from publicly available video collections (VGGSound, FoleyBench, UnAV-100) and are
-shown here for research purposes only. The full dataset, captions, active intervals and the
-evaluation protocol are released after the review period.
+Clips come from publicly available video collections (VGGSound, FoleyBench, UnAV-100) and are shown
+for research purposes only. The dataset, captions and evaluation protocol are released after review.
