@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SelFoley — Text-Guided Selective Video-to-Audio Generation</title>
-<meta name="description" content="SelFoley: text-guided selective video-to-audio generation via conditional source-isolation states, with the human-curated SelFoley3.3K multitrack dataset.">
+<title>SelFoley: Turning Audio-Conditioned Video-to-Audio Models into Text-Guided Source Selectors</title>
+<meta name="description" content="SelFoley turns audio-conditioned video-to-audio models into text-guided source selectors. Listening examples and the human-audited StemFoley-3.3K dataset.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,14 +24,14 @@
 
 <header class="hero wrap">
   <div class="eyebrow"><span>ICLR 2027 submission</span><span class="sep">·</span><span>anonymous authors</span><span class="sep">·</span><span>project page</span></div>
-  <h1>SelFoley: Text-Guided Selective Video-to-Audio Generation via Conditional Source-Isolation States <span class="ver">public release v0.1</span></h1>
+  <h1>SelFoley: Turning Audio-Conditioned Video-to-Audio Models into Text-Guided Source Selectors <span class="ver">public release v0.1</span></h1>
   <p class="lede">Users often want one specific sound from a video, not every sound that is visible in it. SelFoley pairs a human-curated multitrack dataset with a small module, CSIO, that lets a frozen audio-conditioned V2A model generate only the source a text query asks for.</p>
-  <p class="authors">Anonymous authors. Names, affiliations and code links follow after the review period. The release name of the system on this page is SelFoley-CSIO v0.1; later versions will be listed alongside it.</p>
+  <p class="authors">Anonymous authors. Names and affiliations follow after the review period. The checkpoint, evaluation code and dataset are released upon acceptance. The release name of the system on this page is SelFoley-CSIO v0.1; later versions will be listed alongside it.</p>
   <div class="links">
-    <a class="btn ghost" href="dataset.html">SelFoley3.3K dataset →</a>
+    <a class="btn ghost" href="dataset.html">StemFoley-3.3K dataset →</a>
     <a class="btn ghost" href="results.html">Model results →</a>
-    <a class="btn disabled" aria-disabled="true">Paper · after review</a>
-    <a class="btn disabled" aria-disabled="true">Code · after review</a>
+    <a class="btn disabled" aria-disabled="true">Paper · soon</a>
+    <a class="btn disabled" aria-disabled="true">Code · upon acceptance</a>
   </div>
 </header>
 
@@ -40,8 +40,8 @@
   <section class="sec" id="abstract">
     <div class="sec-head"><h2>Abstract</h2></div>
     <div class="abstract">
-      <p>Text-guided selective video-to-audio generation is important because users often want one specific sound, rather than every sound visible in a video. However, progress has been limited by the lack of clean multitrack data, and previous approaches such as SelVA rely on automatically constructed, noisy supervision. We address this limitation with a human-curated 3.3K multitrack dataset containing videos, isolated source stems, and source-level captions.</p>
-      <p>More importantly, we rethink selective V2A as an audio-conditioned V2A problem. Instead of training a text-only model to learn every possible sound, we exploit pretrained AC-V2A models that already transfer an audio reference into a video. By probing their conditioning pathways, we find that source selection is strongly controlled by the semantic representation of the reference audio: a clean reference can suppress unrelated visible events, not merely transfer timbre. Based on this finding, we propose CSIO, which converts a text query into the source-selective reference representation normally obtained from audio. This allows a frozen AC-V2A model to perform text-guided selective generation without massive end-to-end training, combining text-based source selection with the strong synchronization and acoustic rendering ability of pretrained AC-V2A models.</p>
+      <p>Text-guided selective video-to-audio (V2A) asks a model to render only a requested sound from a silent video containing several plausible sources. Existing approaches train selection and generation together, but clean source-level supervision is scarce. We instead study audio-conditioned V2A (AC-V2A), which generates a soundtrack while following a reference sound. ControlFoley, an open-weight AC-V2A model, processes reference content and timbre through separate pathways. Controlled interventions show that its content pathway determines which visible source is rendered and which alternatives are suppressed.</p>
+      <p>We convert this audio interface into a text interface with the Clean Source Isolation Operator (CSIO), a 1.31-million-parameter adapter that predicts the source-content condition while freezing the generator. We train it on StemFoley-3.3K, containing 3,357 clips and 5,383 human-audited source stems with captions. On the fixed 50-clip test set, the resulting SelFoley system selects the requested source over every verified same-scene alternative in 78.76% of cases, versus 51.33% for SelVA; LAION-CLAP confirms this ordering (79.65% vs. 47.79%). SelFoley also reduces VGGish Fréchet distance (4.71 vs. 25.65) and Synchformer alignment error (0.384 vs. 0.413), while listeners report substantially stronger non-target suppression. Separate adapters further improve target selection within ControlFoley, AC-Foley, and Video-Foley by 7.4–23.6 points. Selective V2A can therefore reuse source-selection interfaces already present in audio-conditioned generators rather than relearning separation end to end.</p>
     </div>
   </section>
 
@@ -50,7 +50,7 @@
       <h2>In three steps</h2>
     </div>
     <div class="grid grid-3">
-      <div class="box"><p class="kicker">Data</p><h3>Clean multitrack supervision</h3><p>SelFoley3.3K: 3,357 videos with isolated source stems and a caption per source, every stem audited by human listeners. Prior text-guided models learned from automatically constructed, noisy targets instead.</p></div>
+      <div class="box"><p class="kicker">Data</p><h3>Clean multitrack supervision</h3><p>StemFoley-3.3K: 3,357 videos with isolated source stems and a caption per source, every stem audited by human listeners. Prior text-guided models learned from automatically constructed, noisy targets instead.</p></div>
       <div class="box"><p class="kicker">Finding</p><h3>The reference selects the source</h3><p>Probing the conditioning pathways of pretrained audio-conditioned V2A models shows that source selection is governed by the semantic representation of the reference audio. A clean reference suppresses unrelated visible events; it does not only transfer timbre.</p></div>
       <div class="box"><p class="kicker">Method</p><h3>CSIO: text in place of the reference</h3><p>CSIO converts a text query into the source-selective reference representation that the model normally obtains from audio. The AC-V2A backbone stays frozen and keeps its synchronization and acoustic rendering ability.</p></div>
     </div>
@@ -105,20 +105,20 @@
           <text x="300" y="232" class="dg-s">no reference audio at inference — CSIO supplies the representation</text>
         </g>
       </svg>
-      <figcaption>Schematic. CSIO is trained on SelFoley3.3K, where every clip comes with isolated stems and a caption per source.</figcaption>
+      <figcaption>Schematic. CSIO is trained on StemFoley-3.3K, where every clip comes with isolated stems and a caption per source.</figcaption>
     </figure>
   </section>
 
   <section class="sec" id="data">
     <div class="sec-head">
       <div class="row"><h2>What a training example looks like</h2><a class="btn ghost" href="dataset.html">Browse all 40 examples →</a></div>
-      <p>Each SelFoley3.3K clip is a video with its original mix and one isolated stem per source, each stem carrying a caption and its active intervals. Press a lane to hear it with the video from the start; the shaded bands mark where that source is active.</p>
+      <p>Each StemFoley-3.3K clip is a video with its original mix and one isolated stem per source, each stem carrying a caption and its active intervals. Press a lane to hear it with the video from the start; the shaded bands mark where that source is active.</p>
     </div>
     <div class="grid grid-3" data-grid="teaser"></div>
   </section>
 
   <section class="sec" id="dataset">
-    <div class="sec-head"><h2>SelFoley3.3K</h2></div>
+    <div class="sec-head"><h2>StemFoley-3.3K</h2></div>
     <div class="tiles">
       <div class="tile"><div class="v">3,357</div><div class="k">clips</div></div>
       <div class="tile"><div class="v">5,383</div><div class="k">human-audited stems</div></div>
@@ -137,7 +137,7 @@
   <section class="sec" id="cite">
     <div class="sec-head"><h2>Citation</h2></div>
     <pre class="bib">@inproceedings{anonymous2027selfoley,
-  title     = {SelFoley: Text-Guided Selective Video-to-Audio Generation via Conditional Source-Isolation States},
+  title     = {SelFoley: Turning Audio-Conditioned Video-to-Audio Models into Text-Guided Source Selectors},
   author    = {Anonymous},
   booktitle = {Submitted to ICLR},
   year      = {2027}
