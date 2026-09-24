@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SelFoley — model results</title>
-<meta name="description" content="Systems compared on identical video–caption rows, one lane per model.">
+<meta name="description" content="SelVA and SelFoley on the same videos and text queries, next to the human-curated target stem.">
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,25 +25,18 @@
 <header class="pagehead wrap">
   <div class="eyebrow"><span>Results</span><span class="sep">·</span><span>listening comparison</span></div>
   <h1>Model results</h1>
-  <p class="lede">Every card is one video and one caption. Lanes are the systems; press a lane to hear its output with the video from the start. The reference stem from SelFoley3.3K is the first lane. Model outputs are added as the evaluation is finalised.</p>
+  <p class="lede">Each card is one silent video and one text query. Lanes are the human-curated target stem, SelVA, and SelFoley. Press a lane to hear it with the video from the start; one lane plays at a time.</p>
 </header>
 
 <main class="wrap">
 
-  <section class="sec" id="models" style="padding-top:8px">
+  <section class="sec" id="rows" style="padding-top:8px">
     <div class="sec-head">
-      <h2>Systems compared</h2>
-      <p>Names below come from a small configuration file and will be finalised with the paper.</p>
+      <div class="row"><h2>SelVA vs. SelFoley</h2><span class="fine"><span data-count="results">15</span> videos</span></div>
+      <p>The fifteen clips are items from our human evaluation and were not used for training. The text query is the caption of one source in a multi-source video; the target stem is that source isolated from the original recording, so it shows what a selective model should produce. Listen for whether the other visible events leak in, and whether the timing follows the video.</p>
     </div>
     <div class="legend" data-model-legend></div>
-  </section>
-
-  <section class="sec" id="rows">
-    <div class="sec-head">
-      <h2>Same video, same caption</h2>
-      <p>Rows use SelFoley3.3K clips so that a human-verified reference stem is available for every caption.</p>
-    </div>
-    <div class="grid grid-3" data-grid="results" data-step="12" data-empty="Result rows are added with the evaluation."></div>
+    <div class="grid grid-3" data-grid="results"></div>
   </section>
 
 </main>

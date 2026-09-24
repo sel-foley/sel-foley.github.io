@@ -54,7 +54,7 @@
   function resultSample(r) {
     const tracks = [];
     for (const m of modelsCfg.models) {
-      if (m.kind === 'gt') tracks.push({ id: 'gt', label: m.name, sub: 'from SelFoley3.3K', kind: 'gt', color: GT, audio: r.gt || null, pending: !r.gt });
+      if (m.kind === 'gt') tracks.push({ id: 'gt', label: m.name, sub: m.note || '', kind: 'gt', color: GT, audio: r.gt || null, pending: !r.gt });
       else {
         const audio = r.outputs && r.outputs[m.id];
         tracks.push({ id: m.id, label: m.name, sub: m.note || '', color: m.ours ? ACCENT : (m.color || PALETTE[tracks.length % PALETTE.length]),
@@ -62,7 +62,7 @@
       }
     }
     return { id: r.id, video: r.video, poster: r.poster, duration: r.duration, tracks,
-             title: `“${r.caption}”`, subtitle: `clip #${String(r.n).padStart(2, '0')} · ${r.origin}` };
+             title: `“${r.caption}”`, subtitle: `#${String(r.n).padStart(2, '0')}${r.origin ? ' · ' + r.origin : ''}` };
   }
 
   const clips = (manifest.dataset_clips || []).map(clipSample);
@@ -142,7 +142,7 @@
   if (legend) {
     for (const m of modelsCfg.models) {
       const color = m.kind === 'gt' ? GT : (m.ours ? ACCENT : (m.color || '#9aa0a6'));
-      const tag = m.kind === 'gt' ? '' : ` <span class="pending-tag">${esc(m.status || 'pending')}</span>`;
+      const tag = m.status ? ` <span class="pending-tag">${esc(m.status)}</span>` : '';
       legend.appendChild(el('span', null, `${esc(m.name)}${tag}`)).style.setProperty('--c', color);
     }
   }

@@ -23,7 +23,7 @@ of pretrained AC-V2A models.
 
 - **Overview** (`index.html`) — the finding about conditioning pathways and how CSIO uses it
 - **Dataset** (`dataset.html`) — SelFoley3.3K, with 30 example clips: video, original mix, and each isolated stem with its caption and active intervals
-- **Results** (`results.html`) — systems compared on identical video–caption rows; outputs are added as the evaluation is finalised
+- **Results** (`results.html`) — SelVA and SelFoley on 15 videos from the human evaluation, next to the human-curated target stem
 
 Pressing a lane plays it with that row's video from the beginning; one lane plays at a time.
 

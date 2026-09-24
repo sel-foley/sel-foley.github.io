@@ -1,10 +1,8 @@
 {
-  "_comment": "Display names for the results page. Edit here until the paper's model naming is final; the page reads this file at load time. `kind: gt` marks the reference lane, `ours` highlights our system, `status` is shown while outputs are missing.",
+  "_comment": "Lanes on the results page, in order. `kind: gt` is the human-curated target stem; `ours` highlights our system. Display names can be edited here.",
   "models": [
-    { "id": "gt",       "name": "Reference stem", "kind": "gt" },
-    { "id": "selva",    "name": "Official SelVA", "status": "pending", "color": "#c2703d" },
-    { "id": "sep",      "name": "Source-separation-based Selective V2A", "status": "pending", "color": "#6a994e" },
-    { "id": "selva_ft", "name": "Direct SelVA fine-tuning", "status": "pending", "color": "#8e6bbf" },
-    { "id": "selfoley", "name": "SelFoley-CSIO v0.1", "ours": true, "status": "pending" }
+    { "id": "gt",       "name": "Target stem", "kind": "gt", "note": "human-curated, from the recording" },
+    { "id": "selva",    "name": "SelVA", "color": "#c2703d" },
+    { "id": "selfoley", "name": "SelFoley-CSIO v0.1 (ours)", "ours": true }
   ]
 }
