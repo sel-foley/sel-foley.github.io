@@ -1465,12 +1465,12 @@
    "id": "e01",
    "n": 1,
    "origin": "UnAV-100",
-   "duration": 8.0,
+   "duration": 8.008,
    "video": "media/results/eval/01/video.mp4",
    "poster": "media/results/eval/01/poster.jpg",
    "queries": [
     {
-     "caption": "flute playing",
+     "caption": "trumpet",
      "gt": "media/results/eval/01/q1_gt.wav",
      "outputs": {
       "selva": "media/results/eval/01/q1_selva.wav",
@@ -1479,12 +1479,21 @@
      }
     },
     {
-     "caption": "harp playing",
+     "caption": "piano",
      "gt": "media/results/eval/01/q2_gt.wav",
      "outputs": {
       "selva": "media/results/eval/01/q2_selva.wav",
       "selfoley": "media/results/eval/01/q2_selfoley.wav",
       "syncadapt": "media/results/eval/01/q2_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Drums and bass guitar",
+     "gt": "media/results/eval/01/q3_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/01/q3_selva.wav",
+      "selfoley": "media/results/eval/01/q3_selfoley.wav",
+      "syncadapt": "media/results/eval/01/q3_syncadapt.wav"
      }
     }
    ]
@@ -1492,13 +1501,13 @@
   {
    "id": "e02",
    "n": 2,
-   "origin": "FoleyBench-5K",
+   "origin": "UnAV-100",
    "duration": 8.008,
    "video": "media/results/eval/02/video.mp4",
    "poster": "media/results/eval/02/poster.jpg",
    "queries": [
     {
-     "caption": "Hand rubbing and tapping on tabletop",
+     "caption": "crowd voice",
      "gt": "media/results/eval/02/q1_gt.wav",
      "outputs": {
       "selva": "media/results/eval/02/q1_selva.wav",
@@ -1507,12 +1516,21 @@
      }
     },
     {
-     "caption": "Bowl contacting tabletop",
+     "caption": "Dance foot impacts",
      "gt": "media/results/eval/02/q2_gt.wav",
      "outputs": {
       "selva": "media/results/eval/02/q2_selva.wav",
       "selfoley": "media/results/eval/02/q2_selfoley.wav",
       "syncadapt": "media/results/eval/02/q2_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Applause",
+     "gt": "media/results/eval/02/q3_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/02/q3_selva.wav",
+      "selfoley": "media/results/eval/02/q3_selfoley.wav",
+      "syncadapt": "media/results/eval/02/q3_syncadapt.wav"
      }
     }
    ]
@@ -1521,12 +1539,12 @@
    "id": "e03",
    "n": 3,
    "origin": "UnAV-100",
-   "duration": 8.0,
+   "duration": 8.008,
    "video": "media/results/eval/03/video.mp4",
    "poster": "media/results/eval/03/poster.jpg",
    "queries": [
     {
-     "caption": "Police siren",
+     "caption": "Trumpet",
      "gt": "media/results/eval/03/q1_gt.wav",
      "outputs": {
       "selva": "media/results/eval/03/q1_selva.wav",
@@ -1535,12 +1553,21 @@
      }
     },
     {
-     "caption": "Urban traffic",
+     "caption": "Congas",
      "gt": "media/results/eval/03/q2_gt.wav",
      "outputs": {
       "selva": "media/results/eval/03/q2_selva.wav",
       "selfoley": "media/results/eval/03/q2_selfoley.wav",
       "syncadapt": "media/results/eval/03/q2_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Bass guitar",
+     "gt": "media/results/eval/03/q3_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/03/q3_selva.wav",
+      "selfoley": "media/results/eval/03/q3_selfoley.wav",
+      "syncadapt": "media/results/eval/03/q3_syncadapt.wav"
      }
     }
    ]
@@ -1549,12 +1576,12 @@
    "id": "e04",
    "n": 4,
    "origin": "UnAV-100",
-   "duration": 8.008,
+   "duration": 8.0,
    "video": "media/results/eval/04/video.mp4",
    "poster": "media/results/eval/04/poster.jpg",
    "queries": [
     {
-     "caption": "Volleyball contacts",
+     "caption": "flute playing",
      "gt": "media/results/eval/04/q1_gt.wav",
      "outputs": {
       "selva": "media/results/eval/04/q1_selva.wav",
@@ -1563,7 +1590,7 @@
      }
     },
     {
-     "caption": "Arena crowd",
+     "caption": "harp playing",
      "gt": "media/results/eval/04/q2_gt.wav",
      "outputs": {
       "selva": "media/results/eval/04/q2_selva.wav",
@@ -1576,13 +1603,13 @@
   {
    "id": "e05",
    "n": 5,
-   "origin": "UnAV-100",
+   "origin": "FoleyBench-5K",
    "duration": 8.008,
    "video": "media/results/eval/05/video.mp4",
    "poster": "media/results/eval/05/poster.jpg",
    "queries": [
     {
-     "caption": "trumpet",
+     "caption": "Hand rubbing and tapping on tabletop",
      "gt": "media/results/eval/05/q1_gt.wav",
      "outputs": {
       "selva": "media/results/eval/05/q1_selva.wav",
@@ -1591,21 +1618,12 @@
      }
     },
     {
-     "caption": "piano",
+     "caption": "Bowl contacting tabletop",
      "gt": "media/results/eval/05/q2_gt.wav",
      "outputs": {
       "selva": "media/results/eval/05/q2_selva.wav",
       "selfoley": "media/results/eval/05/q2_selfoley.wav",
       "syncadapt": "media/results/eval/05/q2_syncadapt.wav"
-     }
-    },
-    {
-     "caption": "Drums and bass guitar",
-     "gt": "media/results/eval/05/q3_gt.wav",
-     "outputs": {
-      "selva": "media/results/eval/05/q3_selva.wav",
-      "selfoley": "media/results/eval/05/q3_selfoley.wav",
-      "syncadapt": "media/results/eval/05/q3_syncadapt.wav"
      }
     }
    ]
@@ -1619,7 +1637,7 @@
    "poster": "media/results/eval/06/poster.jpg",
    "queries": [
     {
-     "caption": "Woman singing",
+     "caption": "Police siren",
      "gt": "media/results/eval/06/q1_gt.wav",
      "outputs": {
       "selva": "media/results/eval/06/q1_selva.wav",
@@ -1628,7 +1646,7 @@
      }
     },
     {
-     "caption": "Ukulele",
+     "caption": "Urban traffic",
      "gt": "media/results/eval/06/q2_gt.wav",
      "outputs": {
       "selva": "media/results/eval/06/q2_selva.wav",
@@ -1647,7 +1665,7 @@
    "poster": "media/results/eval/07/poster.jpg",
    "queries": [
     {
-     "caption": "Hammer-board contact",
+     "caption": "Volleyball contacts",
      "gt": "media/results/eval/07/q1_gt.wav",
      "outputs": {
       "selva": "media/results/eval/07/q1_selva.wav",
@@ -1656,7 +1674,7 @@
      }
     },
     {
-     "caption": "Male voice",
+     "caption": "Arena crowd",
      "gt": "media/results/eval/07/q2_gt.wav",
      "outputs": {
       "selva": "media/results/eval/07/q2_selva.wav",
@@ -1670,12 +1688,12 @@
    "id": "e08",
    "n": 8,
    "origin": "UnAV-100",
-   "duration": 8.008,
+   "duration": 8.0,
    "video": "media/results/eval/08/video.mp4",
    "poster": "media/results/eval/08/poster.jpg",
    "queries": [
     {
-     "caption": "crowd voice",
+     "caption": "Woman singing",
      "gt": "media/results/eval/08/q1_gt.wav",
      "outputs": {
       "selva": "media/results/eval/08/q1_selva.wav",
@@ -1684,21 +1702,12 @@
      }
     },
     {
-     "caption": "Dance foot impacts",
+     "caption": "Ukulele",
      "gt": "media/results/eval/08/q2_gt.wav",
      "outputs": {
       "selva": "media/results/eval/08/q2_selva.wav",
       "selfoley": "media/results/eval/08/q2_selfoley.wav",
       "syncadapt": "media/results/eval/08/q2_syncadapt.wav"
-     }
-    },
-    {
-     "caption": "Applause",
-     "gt": "media/results/eval/08/q3_gt.wav",
-     "outputs": {
-      "selva": "media/results/eval/08/q3_selva.wav",
-      "selfoley": "media/results/eval/08/q3_selfoley.wav",
-      "syncadapt": "media/results/eval/08/q3_syncadapt.wav"
      }
     }
    ]
@@ -1712,7 +1721,7 @@
    "poster": "media/results/eval/09/poster.jpg",
    "queries": [
     {
-     "caption": "Trumpet",
+     "caption": "Hammer-board contact",
      "gt": "media/results/eval/09/q1_gt.wav",
      "outputs": {
       "selva": "media/results/eval/09/q1_selva.wav",
@@ -1721,21 +1730,12 @@
      }
     },
     {
-     "caption": "Congas",
+     "caption": "Male voice",
      "gt": "media/results/eval/09/q2_gt.wav",
      "outputs": {
       "selva": "media/results/eval/09/q2_selva.wav",
       "selfoley": "media/results/eval/09/q2_selfoley.wav",
       "syncadapt": "media/results/eval/09/q2_syncadapt.wav"
-     }
-    },
-    {
-     "caption": "Bass guitar",
-     "gt": "media/results/eval/09/q3_gt.wav",
-     "outputs": {
-      "selva": "media/results/eval/09/q3_selva.wav",
-      "selfoley": "media/results/eval/09/q3_selfoley.wav",
-      "syncadapt": "media/results/eval/09/q3_syncadapt.wav"
      }
     }
    ]
