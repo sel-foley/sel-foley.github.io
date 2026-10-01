@@ -1460,216 +1460,585 @@
   "ds05",
   "ds09"
  ],
- "results_rows": [
+ "results_eval": [
+  {
+   "id": "e01",
+   "n": 1,
+   "origin": "UnAV-100",
+   "duration": 8.0,
+   "video": "media/results/eval/01/video.mp4",
+   "poster": "media/results/eval/01/poster.jpg",
+   "queries": [
+    {
+     "caption": "flute playing",
+     "gt": "media/results/eval/01/q1_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/01/q1_selva.wav",
+      "selfoley": "media/results/eval/01/q1_selfoley.wav",
+      "syncadapt": "media/results/eval/01/q1_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "harp playing",
+     "gt": "media/results/eval/01/q2_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/01/q2_selva.wav",
+      "selfoley": "media/results/eval/01/q2_selfoley.wav",
+      "syncadapt": "media/results/eval/01/q2_syncadapt.wav"
+     }
+    }
+   ]
+  },
+  {
+   "id": "e02",
+   "n": 2,
+   "origin": "FoleyBench-5K",
+   "duration": 8.008,
+   "video": "media/results/eval/02/video.mp4",
+   "poster": "media/results/eval/02/poster.jpg",
+   "queries": [
+    {
+     "caption": "Hand rubbing and tapping on tabletop",
+     "gt": "media/results/eval/02/q1_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/02/q1_selva.wav",
+      "selfoley": "media/results/eval/02/q1_selfoley.wav",
+      "syncadapt": "media/results/eval/02/q1_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Bowl contacting tabletop",
+     "gt": "media/results/eval/02/q2_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/02/q2_selva.wav",
+      "selfoley": "media/results/eval/02/q2_selfoley.wav",
+      "syncadapt": "media/results/eval/02/q2_syncadapt.wav"
+     }
+    }
+   ]
+  },
+  {
+   "id": "e03",
+   "n": 3,
+   "origin": "UnAV-100",
+   "duration": 8.0,
+   "video": "media/results/eval/03/video.mp4",
+   "poster": "media/results/eval/03/poster.jpg",
+   "queries": [
+    {
+     "caption": "Police siren",
+     "gt": "media/results/eval/03/q1_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/03/q1_selva.wav",
+      "selfoley": "media/results/eval/03/q1_selfoley.wav",
+      "syncadapt": "media/results/eval/03/q1_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Urban traffic",
+     "gt": "media/results/eval/03/q2_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/03/q2_selva.wav",
+      "selfoley": "media/results/eval/03/q2_selfoley.wav",
+      "syncadapt": "media/results/eval/03/q2_syncadapt.wav"
+     }
+    }
+   ]
+  },
+  {
+   "id": "e04",
+   "n": 4,
+   "origin": "UnAV-100",
+   "duration": 8.008,
+   "video": "media/results/eval/04/video.mp4",
+   "poster": "media/results/eval/04/poster.jpg",
+   "queries": [
+    {
+     "caption": "Volleyball contacts",
+     "gt": "media/results/eval/04/q1_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/04/q1_selva.wav",
+      "selfoley": "media/results/eval/04/q1_selfoley.wav",
+      "syncadapt": "media/results/eval/04/q1_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Arena crowd",
+     "gt": "media/results/eval/04/q2_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/04/q2_selva.wav",
+      "selfoley": "media/results/eval/04/q2_selfoley.wav",
+      "syncadapt": "media/results/eval/04/q2_syncadapt.wav"
+     }
+    }
+   ]
+  },
+  {
+   "id": "e05",
+   "n": 5,
+   "origin": "UnAV-100",
+   "duration": 8.008,
+   "video": "media/results/eval/05/video.mp4",
+   "poster": "media/results/eval/05/poster.jpg",
+   "queries": [
+    {
+     "caption": "trumpet",
+     "gt": "media/results/eval/05/q1_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/05/q1_selva.wav",
+      "selfoley": "media/results/eval/05/q1_selfoley.wav",
+      "syncadapt": "media/results/eval/05/q1_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "piano",
+     "gt": "media/results/eval/05/q2_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/05/q2_selva.wav",
+      "selfoley": "media/results/eval/05/q2_selfoley.wav",
+      "syncadapt": "media/results/eval/05/q2_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Drums and bass guitar",
+     "gt": "media/results/eval/05/q3_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/05/q3_selva.wav",
+      "selfoley": "media/results/eval/05/q3_selfoley.wav",
+      "syncadapt": "media/results/eval/05/q3_syncadapt.wav"
+     }
+    }
+   ]
+  },
+  {
+   "id": "e06",
+   "n": 6,
+   "origin": "UnAV-100",
+   "duration": 8.0,
+   "video": "media/results/eval/06/video.mp4",
+   "poster": "media/results/eval/06/poster.jpg",
+   "queries": [
+    {
+     "caption": "Woman singing",
+     "gt": "media/results/eval/06/q1_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/06/q1_selva.wav",
+      "selfoley": "media/results/eval/06/q1_selfoley.wav",
+      "syncadapt": "media/results/eval/06/q1_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Ukulele",
+     "gt": "media/results/eval/06/q2_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/06/q2_selva.wav",
+      "selfoley": "media/results/eval/06/q2_selfoley.wav",
+      "syncadapt": "media/results/eval/06/q2_syncadapt.wav"
+     }
+    }
+   ]
+  },
+  {
+   "id": "e07",
+   "n": 7,
+   "origin": "UnAV-100",
+   "duration": 8.008,
+   "video": "media/results/eval/07/video.mp4",
+   "poster": "media/results/eval/07/poster.jpg",
+   "queries": [
+    {
+     "caption": "Hammer-board contact",
+     "gt": "media/results/eval/07/q1_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/07/q1_selva.wav",
+      "selfoley": "media/results/eval/07/q1_selfoley.wav",
+      "syncadapt": "media/results/eval/07/q1_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Male voice",
+     "gt": "media/results/eval/07/q2_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/07/q2_selva.wav",
+      "selfoley": "media/results/eval/07/q2_selfoley.wav",
+      "syncadapt": "media/results/eval/07/q2_syncadapt.wav"
+     }
+    }
+   ]
+  },
+  {
+   "id": "e08",
+   "n": 8,
+   "origin": "UnAV-100",
+   "duration": 8.008,
+   "video": "media/results/eval/08/video.mp4",
+   "poster": "media/results/eval/08/poster.jpg",
+   "queries": [
+    {
+     "caption": "crowd voice",
+     "gt": "media/results/eval/08/q1_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/08/q1_selva.wav",
+      "selfoley": "media/results/eval/08/q1_selfoley.wav",
+      "syncadapt": "media/results/eval/08/q1_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Dance foot impacts",
+     "gt": "media/results/eval/08/q2_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/08/q2_selva.wav",
+      "selfoley": "media/results/eval/08/q2_selfoley.wav",
+      "syncadapt": "media/results/eval/08/q2_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Applause",
+     "gt": "media/results/eval/08/q3_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/08/q3_selva.wav",
+      "selfoley": "media/results/eval/08/q3_selfoley.wav",
+      "syncadapt": "media/results/eval/08/q3_syncadapt.wav"
+     }
+    }
+   ]
+  },
+  {
+   "id": "e09",
+   "n": 9,
+   "origin": "UnAV-100",
+   "duration": 8.008,
+   "video": "media/results/eval/09/video.mp4",
+   "poster": "media/results/eval/09/poster.jpg",
+   "queries": [
+    {
+     "caption": "Trumpet",
+     "gt": "media/results/eval/09/q1_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/09/q1_selva.wav",
+      "selfoley": "media/results/eval/09/q1_selfoley.wav",
+      "syncadapt": "media/results/eval/09/q1_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Congas",
+     "gt": "media/results/eval/09/q2_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/09/q2_selva.wav",
+      "selfoley": "media/results/eval/09/q2_selfoley.wav",
+      "syncadapt": "media/results/eval/09/q2_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "Bass guitar",
+     "gt": "media/results/eval/09/q3_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/09/q3_selva.wav",
+      "selfoley": "media/results/eval/09/q3_selfoley.wav",
+      "syncadapt": "media/results/eval/09/q3_syncadapt.wav"
+     }
+    }
+   ]
+  },
+  {
+   "id": "e10",
+   "n": 10,
+   "origin": "UnAV-100",
+   "duration": 8.0,
+   "video": "media/results/eval/10/video.mp4",
+   "poster": "media/results/eval/10/poster.jpg",
+   "queries": [
+    {
+     "caption": "singing voice",
+     "gt": "media/results/eval/10/q1_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/10/q1_selva.wav",
+      "selfoley": "media/results/eval/10/q1_selfoley.wav",
+      "syncadapt": "media/results/eval/10/q1_syncadapt.wav"
+     }
+    },
+    {
+     "caption": "applause",
+     "gt": "media/results/eval/10/q2_gt.wav",
+     "outputs": {
+      "selva": "media/results/eval/10/q2_selva.wav",
+      "selfoley": "media/results/eval/10/q2_selfoley.wav",
+      "syncadapt": "media/results/eval/10/q2_syncadapt.wav"
+     }
+    }
+   ]
+  }
+ ],
+ "results_listening": [
   {
    "id": "r01",
    "n": 1,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/01/video.mp4",
-   "poster": "media/results/01/poster.jpg",
-   "caption": "Bowling ball rolling",
-   "gt": "media/results/01/gt.wav",
-   "outputs": {
-    "selva": "media/results/01/selva.wav",
-    "selfoley": "media/results/01/selfoley.wav"
-   }
+   "video": "media/results/listening/01/video.mp4",
+   "poster": "media/results/listening/01/poster.jpg",
+   "queries": [
+    {
+     "caption": "Bowling ball rolling",
+     "gt": "media/results/listening/01/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/01/selva.wav",
+      "selfoley": "media/results/listening/01/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r02",
    "n": 2,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/02/video.mp4",
-   "poster": "media/results/02/poster.jpg",
-   "caption": "child vocalization",
-   "gt": "media/results/02/gt.wav",
-   "outputs": {
-    "selva": "media/results/02/selva.wav",
-    "selfoley": "media/results/02/selfoley.wav"
-   }
+   "video": "media/results/listening/02/video.mp4",
+   "poster": "media/results/listening/02/poster.jpg",
+   "queries": [
+    {
+     "caption": "child vocalization",
+     "gt": "media/results/listening/02/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/02/selva.wav",
+      "selfoley": "media/results/listening/02/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r03",
    "n": 3,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/03/video.mp4",
-   "poster": "media/results/03/poster.jpg",
-   "caption": "Sheep bleats",
-   "gt": "media/results/03/gt.wav",
-   "outputs": {
-    "selva": "media/results/03/selva.wav",
-    "selfoley": "media/results/03/selfoley.wav"
-   }
+   "video": "media/results/listening/03/video.mp4",
+   "poster": "media/results/listening/03/poster.jpg",
+   "queries": [
+    {
+     "caption": "Sheep bleats",
+     "gt": "media/results/listening/03/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/03/selva.wav",
+      "selfoley": "media/results/listening/03/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r04",
    "n": 4,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/04/video.mp4",
-   "poster": "media/results/04/poster.jpg",
-   "caption": "car engine",
-   "gt": "media/results/04/gt.wav",
-   "outputs": {
-    "selva": "media/results/04/selva.wav",
-    "selfoley": "media/results/04/selfoley.wav"
-   }
+   "video": "media/results/listening/04/video.mp4",
+   "poster": "media/results/listening/04/poster.jpg",
+   "queries": [
+    {
+     "caption": "car engine",
+     "gt": "media/results/listening/04/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/04/selva.wav",
+      "selfoley": "media/results/listening/04/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r05",
    "n": 5,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/05/video.mp4",
-   "poster": "media/results/05/poster.jpg",
-   "caption": "laughter",
-   "gt": "media/results/05/gt.wav",
-   "outputs": {
-    "selva": "media/results/05/selva.wav",
-    "selfoley": "media/results/05/selfoley.wav"
-   }
+   "video": "media/results/listening/05/video.mp4",
+   "poster": "media/results/listening/05/poster.jpg",
+   "queries": [
+    {
+     "caption": "laughter",
+     "gt": "media/results/listening/05/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/05/selva.wav",
+      "selfoley": "media/results/listening/05/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r06",
    "n": 6,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/06/video.mp4",
-   "poster": "media/results/06/poster.jpg",
-   "caption": "jumping and landing sounds",
-   "gt": "media/results/06/gt.wav",
-   "outputs": {
-    "selva": "media/results/06/selva.wav",
-    "selfoley": "media/results/06/selfoley.wav"
-   }
+   "video": "media/results/listening/06/video.mp4",
+   "poster": "media/results/listening/06/poster.jpg",
+   "queries": [
+    {
+     "caption": "jumping and landing sounds",
+     "gt": "media/results/listening/06/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/06/selva.wav",
+      "selfoley": "media/results/listening/06/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r07",
    "n": 7,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/07/video.mp4",
-   "poster": "media/results/07/poster.jpg",
-   "caption": "ball impacts",
-   "gt": "media/results/07/gt.wav",
-   "outputs": {
-    "selva": "media/results/07/selva.wav",
-    "selfoley": "media/results/07/selfoley.wav"
-   }
+   "video": "media/results/listening/07/video.mp4",
+   "poster": "media/results/listening/07/poster.jpg",
+   "queries": [
+    {
+     "caption": "ball impacts",
+     "gt": "media/results/listening/07/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/07/selva.wav",
+      "selfoley": "media/results/listening/07/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r08",
    "n": 8,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/08/video.mp4",
-   "poster": "media/results/08/poster.jpg",
-   "caption": "a baby laughing",
-   "gt": "media/results/08/gt.wav",
-   "outputs": {
-    "selva": "media/results/08/selva.wav",
-    "selfoley": "media/results/08/selfoley.wav"
-   }
+   "video": "media/results/listening/08/video.mp4",
+   "poster": "media/results/listening/08/poster.jpg",
+   "queries": [
+    {
+     "caption": "a baby laughing",
+     "gt": "media/results/listening/08/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/08/selva.wav",
+      "selfoley": "media/results/listening/08/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r09",
    "n": 9,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/09/video.mp4",
-   "poster": "media/results/09/poster.jpg",
-   "caption": "blowing a nose into a tissue",
-   "gt": "media/results/09/gt.wav",
-   "outputs": {
-    "selva": "media/results/09/selva.wav",
-    "selfoley": "media/results/09/selfoley.wav"
-   }
+   "video": "media/results/listening/09/video.mp4",
+   "poster": "media/results/listening/09/poster.jpg",
+   "queries": [
+    {
+     "caption": "blowing a nose into a tissue",
+     "gt": "media/results/listening/09/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/09/selva.wav",
+      "selfoley": "media/results/listening/09/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r10",
    "n": 10,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/10/video.mp4",
-   "poster": "media/results/10/poster.jpg",
-   "caption": "a man speaking",
-   "gt": "media/results/10/gt.wav",
-   "outputs": {
-    "selva": "media/results/10/selva.wav",
-    "selfoley": "media/results/10/selfoley.wav"
-   }
+   "video": "media/results/listening/10/video.mp4",
+   "poster": "media/results/listening/10/poster.jpg",
+   "queries": [
+    {
+     "caption": "a man speaking",
+     "gt": "media/results/listening/10/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/10/selva.wav",
+      "selfoley": "media/results/listening/10/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r11",
    "n": 11,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/11/video.mp4",
-   "poster": "media/results/11/poster.jpg",
-   "caption": "reverberant basketball bounces",
-   "gt": "media/results/11/gt.wav",
-   "outputs": {
-    "selva": "media/results/11/selva.wav",
-    "selfoley": "media/results/11/selfoley.wav"
-   }
+   "video": "media/results/listening/11/video.mp4",
+   "poster": "media/results/listening/11/poster.jpg",
+   "queries": [
+    {
+     "caption": "reverberant basketball bounces",
+     "gt": "media/results/listening/11/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/11/selva.wav",
+      "selfoley": "media/results/listening/11/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r12",
    "n": 12,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/12/video.mp4",
-   "poster": "media/results/12/poster.jpg",
-   "caption": "man speaking",
-   "gt": "media/results/12/gt.wav",
-   "outputs": {
-    "selva": "media/results/12/selva.wav",
-    "selfoley": "media/results/12/selfoley.wav"
-   }
+   "video": "media/results/listening/12/video.mp4",
+   "poster": "media/results/listening/12/poster.jpg",
+   "queries": [
+    {
+     "caption": "man speaking",
+     "gt": "media/results/listening/12/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/12/selva.wav",
+      "selfoley": "media/results/listening/12/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r13",
    "n": 13,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/13/video.mp4",
-   "poster": "media/results/13/poster.jpg",
-   "caption": "Racket hits",
-   "gt": "media/results/13/gt.wav",
-   "outputs": {
-    "selva": "media/results/13/selva.wav",
-    "selfoley": "media/results/13/selfoley.wav"
-   }
+   "video": "media/results/listening/13/video.mp4",
+   "poster": "media/results/listening/13/poster.jpg",
+   "queries": [
+    {
+     "caption": "Racket hits",
+     "gt": "media/results/listening/13/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/13/selva.wav",
+      "selfoley": "media/results/listening/13/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r14",
    "n": 14,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/14/video.mp4",
-   "poster": "media/results/14/poster.jpg",
-   "caption": "jump-rope sounds",
-   "gt": "media/results/14/gt.wav",
-   "outputs": {
-    "selva": "media/results/14/selva.wav",
-    "selfoley": "media/results/14/selfoley.wav"
-   }
+   "video": "media/results/listening/14/video.mp4",
+   "poster": "media/results/listening/14/poster.jpg",
+   "queries": [
+    {
+     "caption": "jump-rope sounds",
+     "gt": "media/results/listening/14/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/14/selva.wav",
+      "selfoley": "media/results/listening/14/selfoley.wav"
+     }
+    }
+   ]
   },
   {
    "id": "r15",
    "n": 15,
    "origin": "UnAV-100",
    "duration": 8.0,
-   "video": "media/results/15/video.mp4",
-   "poster": "media/results/15/poster.jpg",
-   "caption": "Electronic sampler output",
-   "gt": "media/results/15/gt.wav",
-   "outputs": {
-    "selva": "media/results/15/selva.wav",
-    "selfoley": "media/results/15/selfoley.wav"
-   }
+   "video": "media/results/listening/15/video.mp4",
+   "poster": "media/results/listening/15/poster.jpg",
+   "queries": [
+    {
+     "caption": "Electronic sampler output",
+     "gt": "media/results/listening/15/gt.wav",
+     "outputs": {
+      "selva": "media/results/listening/15/selva.wav",
+      "selfoley": "media/results/listening/15/selfoley.wav"
+     }
+    }
+   ]
   }
  ]
 }

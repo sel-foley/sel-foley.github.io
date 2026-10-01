@@ -26,7 +26,7 @@ already present in audio-conditioned generators rather than relearning separatio
 
 - **Overview** (`index.html`) — the finding about conditioning pathways and how CSIO uses it
 - **Dataset** (`dataset.html`) — StemFoley-3.3K, with 40 example clips: video, original mix, and each isolated stem with its caption
-- **Results** (`results.html`) — SelVA and SelFoley on 15 videos from the human evaluation, next to the human-curated target stem
+- **Results** (`results.html`) — SelVA, SelFoley and SelFoley+SyncAdapt next to the human-curated target stem: 10 StemFoley-3.3K evaluation clips with several text queries each, then 15 items from the human evaluation
 
 Pressing a lane plays it with that row's video from the beginning; one lane plays at a time.
 

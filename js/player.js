@@ -164,6 +164,7 @@
       this.video.addEventListener('playing', () => { if (this.playing) this.startSources(this.video.currentTime); });
       this.video.addEventListener('seeked', () => { if (this.playing) this.startSources(this.video.currentTime); });
       this.video.addEventListener('waiting', () => this.stopSources());
+      this.video.addEventListener('error', () => this.retryVideo());
       ['loadeddata', 'canplay', 'canplaythrough', 'progress'].forEach(ev =>
         this.video.addEventListener(ev, () => this.applySeek()));
       this.video.addEventListener('ended', () => { if (this.loop) { this.seek(0); } else { this.pause(); this.drawAll(this.duration); } });
@@ -322,6 +323,18 @@
       if (!v.paused) return;
       if (v.currentTime > 0.01 && this.wantSeek == null) this.wantSeek = v.currentTime;
       v.load();
+    }
+    /** A transient network failure leaves the element with no source; reload it once. */
+    retryVideo() {
+      if (this.videoRetried) return;
+      this.videoRetried = true;
+      setTimeout(() => {
+        const v = this.video;
+        this.primed = true;                         // full load from here; never reload mid-flight
+        v.preload = 'auto';
+        v.load();
+        if (this.playing) v.play().catch(() => { /* reported by the element */ });
+      }, 400);
     }
     startSources(at) {
       const ctx = Engine.get(); this.stopSources();

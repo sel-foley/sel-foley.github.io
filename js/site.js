@@ -51,38 +51,41 @@
   }
 
   /** Result row → player sample: reference stem, then one lane per configured model. */
-  function resultSample(r) {
-    const tracks = [];
+  /** Result row + query index → player sample: target stem, then one lane per model with an output. */
+  function resultSample(r, qi, prefix) {
+    const q = r.queries[qi], tracks = [];
     for (const m of modelsCfg.models) {
-      if (m.kind === 'gt') tracks.push({ id: 'gt', label: m.name, sub: m.note || '', kind: 'gt', color: GT, audio: r.gt || null, pending: !r.gt });
-      else {
-        const audio = r.outputs && r.outputs[m.id];
-        tracks.push({ id: m.id, label: m.name, sub: m.note || '', color: m.ours ? ACCENT : (m.color || PALETTE[tracks.length % PALETTE.length]),
-                      highlight: !!m.ours, audio: audio || null, pending: !audio, status: audio ? '' : (m.status || 'pending') });
-      }
+      if (m.kind === 'gt') { tracks.push({ id: 'gt', label: m.name, sub: m.note || '', kind: 'gt', color: GT, audio: q.gt }); continue; }
+      const audio = q.outputs && q.outputs[m.id];
+      if (!audio) continue;                      // this row has no output from that model
+      tracks.push({ id: m.id, label: m.name, sub: m.note || '', color: m.color || (m.ours ? ACCENT : PALETTE[tracks.length % PALETTE.length]),
+                    highlight: !!m.ours, audio });
     }
-    return { id: r.id, video: r.video, poster: r.poster, duration: r.duration, tracks,
-             title: `“${r.caption}”`, subtitle: `#${String(r.n).padStart(2, '0')}${r.origin ? ' · ' + r.origin : ''}` };
+    const num = `${prefix}${String(r.n).padStart(2, '0')}`, multi = r.queries.length > 1;
+    return { id: `${r.id}_q${qi}`, video: r.video, poster: r.poster, duration: r.duration, tracks, row: r, qi, prefix,
+             title: multi ? num : `“${q.caption}”`,
+             subtitle: multi ? `${r.origin ? r.origin + ' · ' : ''}${r.queries.length} text queries` : `${num}${r.origin ? ' · ' + r.origin : ''}`,
+             expandTitle: `${num} · “${q.caption}”` };
   }
-
   const clips = (manifest.dataset_clips || []).map(clipSample);
   const byId = new Map(clips.map(c => [c.id, c]));
   const lists = {
     dataset: clips,
     teaser: (manifest.teaser || []).map(id => byId.get(id)).filter(Boolean),
-    results: (manifest.results_rows || []).map(resultSample),
+    results_eval: (manifest.results_eval || []).map(r => resultSample(r, 0, 'E')),
+    results: (manifest.results_listening || []).map(r => resultSample(r, 0, 'L')),
   };
 
   const io = new IntersectionObserver(entries => {
     for (const en of entries) if (en.isIntersecting) { en.target._player && en.target._player.preload(); io.unobserve(en.target); }
   }, { rootMargin: '400px 0px' });
 
-  function mount(slot, sample) {
+  function mount(slot, sample, opts = {}) {
     const root = el('div');
     slot.appendChild(root);
-    const p = new ClipPlayer(root, sample);
+    const p = new ClipPlayer(root, sample, opts);
     root._player = p; players.push(p); io.observe(root);
-    if (window.Expand) Expand.attach(p, slot, [sample.title, sample.subtitle].filter(Boolean).join(' · '));
+    if (window.Expand) Expand.attach(p, slot, sample.expandTitle || [sample.title, sample.subtitle].filter(Boolean).join(' · '));
     requestAnimationFrame(() => p.resizeCanvases());
     return p;
   }
@@ -93,9 +96,38 @@
     head.appendChild(el('h3', null, esc(sample.title || sample.id)));
     if (sample.subtitle) head.appendChild(el('span', 'sub', esc(sample.subtitle)));
     c.appendChild(head);
+    if (sample.row && sample.row.queries.length > 1) {
+      const qs = el('div', 'queries');
+      qs.appendChild(el('span', 'queries-k', 'Text query'));
+      sample.row.queries.forEach((q, qi) => {
+        const b = el('button', 'qchip' + (qi === sample.qi ? ' on' : ''), `“${esc(q.caption)}”`);
+        b.dataset.qi = qi; qs.appendChild(b);
+      });
+      c.appendChild(qs);
+    }
     const slot = el('div', 'player-slot');
     c.appendChild(slot);
     return { c, slot };
+  }
+
+  /** Switching the text query rebuilds the card's player on the same video, keeping the selected lane. */
+  function wireQueries(c, slot, sample, first) {
+    let p = first;
+    c.querySelectorAll('.qchip').forEach(b => b.addEventListener('click', () => {
+      const qi = +b.dataset.qi;
+      if (qi === p.sample.qi) return;
+      c.querySelectorAll('.qchip').forEach(x => x.classList.toggle('on', x === b));
+      const keepLane = p.selected;
+      if (window.Expand && Expand.current && Expand.current.player === p) Expand.close();
+      p.destroy();
+      if (MTPEngine.active === p) MTPEngine.active = null;
+      io.unobserve(p.root);
+      players.splice(players.indexOf(p), 1);
+      slot.innerHTML = '';
+      const ns = resultSample(sample.row, qi, sample.prefix);
+      p = mount(slot, ns, { selected: Math.min(keepLane, ns.tracks.length - 1) });
+      p.preload();
+    }));
   }
 
   function renderGrid(gridEl, list, opts = {}) {
@@ -104,7 +136,7 @@
     let shown = 0;
     const more = el('div', 'morebar'); const btn = el('button', 'btn ghost', ''); more.appendChild(btn);
     const show = () => {
-      list.slice(shown, shown + step).forEach(s => { const { c, slot } = card(s); gridEl.appendChild(c); mount(slot, s); });
+      list.slice(shown, shown + step).forEach(s => { const { c, slot } = card(s); gridEl.appendChild(c); const p = mount(slot, s); if (s.row) wireQueries(c, slot, s, p); });
       shown = Math.min(list.length, shown + step);
       btn.textContent = `Show more (${list.length - shown} left)`;
       more.hidden = shown >= list.length;
@@ -138,14 +170,36 @@
   });
 
   // model legend on the results page, from the same config
-  const legend = $('[data-model-legend]');
-  if (legend) {
-    for (const m of modelsCfg.models) {
-      const color = m.kind === 'gt' ? GT : (m.ours ? ACCENT : (m.color || '#9aa0a6'));
-      const tag = m.status ? ` <span class="pending-tag">${esc(m.status)}</span>` : '';
-      legend.appendChild(el('span', null, `${esc(m.name)}${tag}`)).style.setProperty('--c', color);
-    }
+  // Query chips wrap to one or two lines; give every card in a visual grid row the same chip-row
+  // height so the videos (and the lanes under them) line up across the row.
+  function alignQueryRows() {
+    document.querySelectorAll('.grid').forEach(grid => {
+      const qs = [...grid.querySelectorAll(':scope > .card:not([hidden]) > .queries')];
+      if (!qs.length) return;
+      qs.forEach(q => { q.style.minHeight = ''; });
+      const rows = new Map();
+      qs.forEach(q => { const top = Math.round(q.parentElement.getBoundingClientRect().top); (rows.get(top) || rows.set(top, []).get(top)).push(q); });
+      for (const group of rows.values()) {
+        if (group.length < 2) continue;
+        const h = Math.max(...group.map(q => q.getBoundingClientRect().height));
+        group.forEach(q => { q.style.minHeight = h + 'px'; });
+      }
+    });
   }
+  let alignRaf = 0;
+  const scheduleAlign = () => { cancelAnimationFrame(alignRaf); alignRaf = requestAnimationFrame(alignQueryRows); };
+  scheduleAlign();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleAlign);
+  window.addEventListener('resize', scheduleAlign);
+
+  document.querySelectorAll('[data-model-legend]').forEach(legend => {
+    const only = legend.dataset.modelLegend ? legend.dataset.modelLegend.split(',') : null;
+    for (const m of modelsCfg.models) {
+      if (only && !only.includes(m.id)) continue;
+      const color = m.kind === 'gt' ? GT : (m.color || (m.ours ? ACCENT : '#9aa0a6'));
+      legend.appendChild(el('span', null, esc(m.name))).style.setProperty('--c', color);
+    }
+  });
   const stems = clips.reduce((n, c) => n + c.tracks.length - 1, 0);
   document.querySelectorAll('[data-stat="shown_clips"]').forEach(n => { n.textContent = clips.length; });
   document.querySelectorAll('[data-stat="shown_stems"]').forEach(n => { n.textContent = stems; });

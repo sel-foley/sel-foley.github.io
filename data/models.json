@@ -1,8 +1,9 @@
 {
-  "_comment": "Lanes on the results page, in order. `kind: gt` is the human-curated target stem; `ours` highlights our system. Display names can be edited here.",
+  "_comment": "Lanes on the results page, in order. `kind: gt` is the human-curated target stem (a reference, not a generated output); `ours` marks our systems. A lane is shown only on rows that have that model's output. Display names can be edited here.",
   "models": [
-    { "id": "gt",       "name": "Target stem", "kind": "gt", "note": "human-curated, from the recording" },
-    { "id": "selva",    "name": "SelVA", "color": "#c2703d" },
-    { "id": "selfoley", "name": "SelFoley-CSIO v0.1 (ours)", "ours": true }
+    { "id": "gt",        "name": "Human-curated target stem", "kind": "gt", "note": "reference, not generated" },
+    { "id": "selva",     "name": "SelVA", "color": "#c2703d" },
+    { "id": "selfoley",  "name": "SelFoley (ours)", "ours": true },
+    { "id": "syncadapt", "name": "SelFoley+SyncAdapt (ours)", "ours": true, "color": "#4f9a94" }
   ]
 }
