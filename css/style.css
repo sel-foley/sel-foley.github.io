@@ -121,8 +121,8 @@ h3 { font-size: 1.02rem; margin: 0 0 6px; font-weight: 650; }
 .step b { display: block; font-size: .95rem; }
 .step span { color: var(--muted); font-size: .9rem; }
 
-.queries { display: flex; flex-wrap: wrap; align-items: center; align-content: flex-start; gap: 6px; margin: 0 0 8px; }
-.queries-k { font-size: .72rem; color: var(--muted); margin-right: 2px; }
+.queries { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; margin: 0 0 8px; }
+.queries-k { font-size: .72rem; color: var(--muted); margin-bottom: 1px; }
 .qchip { border: 1px solid var(--line); background: transparent; color: var(--text); border-radius: 999px; padding: 3px 10px; font: 500 .8rem var(--sans); cursor: pointer; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .qchip:hover { background: var(--bg2); }
 .qchip.on { background: var(--text); color: var(--bg); border-color: var(--text); }
