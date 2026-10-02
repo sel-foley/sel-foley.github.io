@@ -193,7 +193,9 @@
   window.addEventListener('resize', scheduleAlign);
 
   document.querySelectorAll('[data-model-legend]').forEach(legend => {
-    const only = legend.dataset.modelLegend ? legend.dataset.modelLegend.split(',') : null;
+    let only = legend.dataset.modelLegend ? legend.dataset.modelLegend.split(',') : null;
+    const forGrid = legend.dataset.legendFor && lists[legend.dataset.legendFor];
+    if (forGrid) only = ['gt', ...new Set(forGrid.flatMap(s => s.tracks.map(t => t.id)))];
     for (const m of modelsCfg.models) {
       if (only && !only.includes(m.id)) continue;
       const color = m.kind === 'gt' ? GT : (m.color || (m.ours ? ACCENT : '#9aa0a6'));
