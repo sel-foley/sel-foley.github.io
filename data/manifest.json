@@ -1783,7 +1783,8 @@
      "gt": "media/results/listening/01/gt.wav",
      "outputs": {
       "selva": "media/results/listening/01/selva.wav",
-      "selfoley": "media/results/listening/01/selfoley.wav"
+      "selfoley": "media/results/listening/01/selfoley.wav",
+      "syncadapt": "media/results/listening/01/syncadapt.wav"
      }
     }
    ]
@@ -1801,7 +1802,8 @@
      "gt": "media/results/listening/02/gt.wav",
      "outputs": {
       "selva": "media/results/listening/02/selva.wav",
-      "selfoley": "media/results/listening/02/selfoley.wav"
+      "selfoley": "media/results/listening/02/selfoley.wav",
+      "syncadapt": "media/results/listening/02/syncadapt.wav"
      }
     }
    ]
@@ -1819,7 +1821,8 @@
      "gt": "media/results/listening/03/gt.wav",
      "outputs": {
       "selva": "media/results/listening/03/selva.wav",
-      "selfoley": "media/results/listening/03/selfoley.wav"
+      "selfoley": "media/results/listening/03/selfoley.wav",
+      "syncadapt": "media/results/listening/03/syncadapt.wav"
      }
     }
    ]
@@ -1837,7 +1840,8 @@
      "gt": "media/results/listening/04/gt.wav",
      "outputs": {
       "selva": "media/results/listening/04/selva.wav",
-      "selfoley": "media/results/listening/04/selfoley.wav"
+      "selfoley": "media/results/listening/04/selfoley.wav",
+      "syncadapt": "media/results/listening/04/syncadapt.wav"
      }
     }
    ]
@@ -1855,7 +1859,8 @@
      "gt": "media/results/listening/05/gt.wav",
      "outputs": {
       "selva": "media/results/listening/05/selva.wav",
-      "selfoley": "media/results/listening/05/selfoley.wav"
+      "selfoley": "media/results/listening/05/selfoley.wav",
+      "syncadapt": "media/results/listening/05/syncadapt.wav"
      }
     }
    ]
@@ -1873,7 +1878,8 @@
      "gt": "media/results/listening/06/gt.wav",
      "outputs": {
       "selva": "media/results/listening/06/selva.wav",
-      "selfoley": "media/results/listening/06/selfoley.wav"
+      "selfoley": "media/results/listening/06/selfoley.wav",
+      "syncadapt": "media/results/listening/06/syncadapt.wav"
      }
     }
    ]
@@ -1891,7 +1897,8 @@
      "gt": "media/results/listening/07/gt.wav",
      "outputs": {
       "selva": "media/results/listening/07/selva.wav",
-      "selfoley": "media/results/listening/07/selfoley.wav"
+      "selfoley": "media/results/listening/07/selfoley.wav",
+      "syncadapt": "media/results/listening/07/syncadapt.wav"
      }
     }
    ]
@@ -1909,7 +1916,8 @@
      "gt": "media/results/listening/08/gt.wav",
      "outputs": {
       "selva": "media/results/listening/08/selva.wav",
-      "selfoley": "media/results/listening/08/selfoley.wav"
+      "selfoley": "media/results/listening/08/selfoley.wav",
+      "syncadapt": "media/results/listening/08/syncadapt.wav"
      }
     }
    ]
@@ -1927,7 +1935,8 @@
      "gt": "media/results/listening/09/gt.wav",
      "outputs": {
       "selva": "media/results/listening/09/selva.wav",
-      "selfoley": "media/results/listening/09/selfoley.wav"
+      "selfoley": "media/results/listening/09/selfoley.wav",
+      "syncadapt": "media/results/listening/09/syncadapt.wav"
      }
     }
    ]
@@ -1945,7 +1954,8 @@
      "gt": "media/results/listening/10/gt.wav",
      "outputs": {
       "selva": "media/results/listening/10/selva.wav",
-      "selfoley": "media/results/listening/10/selfoley.wav"
+      "selfoley": "media/results/listening/10/selfoley.wav",
+      "syncadapt": "media/results/listening/10/syncadapt.wav"
      }
     }
    ]
@@ -1963,7 +1973,8 @@
      "gt": "media/results/listening/11/gt.wav",
      "outputs": {
       "selva": "media/results/listening/11/selva.wav",
-      "selfoley": "media/results/listening/11/selfoley.wav"
+      "selfoley": "media/results/listening/11/selfoley.wav",
+      "syncadapt": "media/results/listening/11/syncadapt.wav"
      }
     }
    ]
@@ -1981,7 +1992,8 @@
      "gt": "media/results/listening/12/gt.wav",
      "outputs": {
       "selva": "media/results/listening/12/selva.wav",
-      "selfoley": "media/results/listening/12/selfoley.wav"
+      "selfoley": "media/results/listening/12/selfoley.wav",
+      "syncadapt": "media/results/listening/12/syncadapt.wav"
      }
     }
    ]
@@ -1999,7 +2011,8 @@
      "gt": "media/results/listening/13/gt.wav",
      "outputs": {
       "selva": "media/results/listening/13/selva.wav",
-      "selfoley": "media/results/listening/13/selfoley.wav"
+      "selfoley": "media/results/listening/13/selfoley.wav",
+      "syncadapt": "media/results/listening/13/syncadapt.wav"
      }
     }
    ]
@@ -2017,7 +2030,8 @@
      "gt": "media/results/listening/14/gt.wav",
      "outputs": {
       "selva": "media/results/listening/14/selva.wav",
-      "selfoley": "media/results/listening/14/selfoley.wav"
+      "selfoley": "media/results/listening/14/selfoley.wav",
+      "syncadapt": "media/results/listening/14/syncadapt.wav"
      }
     }
    ]
@@ -2035,7 +2049,8 @@
      "gt": "media/results/listening/15/gt.wav",
      "outputs": {
       "selva": "media/results/listening/15/selva.wav",
-      "selfoley": "media/results/listening/15/selfoley.wav"
+      "selfoley": "media/results/listening/15/selfoley.wav",
+      "syncadapt": "media/results/listening/15/syncadapt.wav"
      }
     }
    ]
