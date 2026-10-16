@@ -85,10 +85,13 @@
     slot.appendChild(root);
     const p = new ClipPlayer(root, sample, opts);
     root._player = p; players.push(p); io.observe(root);
-    if (window.Expand) Expand.attach(p, slot, sample.expandTitle || [sample.title, sample.subtitle].filter(Boolean).join(' · '));
+    if (window.Expand && sample.mode !== 'source-mix') Expand.attach(p, slot, sample.expandTitle || [sample.title, sample.subtitle].filter(Boolean).join(' · '));
     requestAnimationFrame(() => p.resizeCanvases());
     return p;
   }
+  const heroSlot = $('[data-hero-player]');
+  if (heroSlot && manifest.hero) mount(heroSlot, manifest.hero, { selected: 1 });
+
   function card(sample) {
     const c = el('div', 'card');
     if (sample.origin) c.dataset.origin = sample.origin;

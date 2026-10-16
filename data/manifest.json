@@ -1,4 +1,55 @@
 {
+ "hero": {
+  "id": "hero",
+  "mode": "source-mix",
+  "video": "media/hero/video.mp4",
+  "poster": "media/hero/poster.jpg",
+  "duration": 8,
+  "tracks": [
+   {
+    "id": "original",
+    "label": "Original recording",
+    "sub": "real audio of the clip",
+    "color": "#737b88",
+    "audio": "media/hero/original.wav",
+    "mixable": false,
+    "group": "Reference"
+   },
+   {
+    "id": "v2a",
+    "label": "Current V2A model",
+    "sub": "one mixed track",
+    "color": "#737b88",
+    "audio": "media/hero/v2a.wav",
+    "mixable": false
+   },
+   {
+    "id": "engine",
+    "label": "Engine",
+    "sub": "track 1",
+    "color": "#2f6fdb",
+    "audio": "media/hero/engine.wav",
+    "mixable": true,
+    "group": "SelFoley · one track per text query"
+   },
+   {
+    "id": "pickup",
+    "label": "Coin pickups",
+    "sub": "track 2",
+    "color": "#b87400",
+    "audio": "media/hero/pickup.wav",
+    "mixable": true
+   },
+   {
+    "id": "music",
+    "label": "Music",
+    "sub": "track 3",
+    "color": "#0f8463",
+    "audio": "media/hero/music.wav",
+    "mixable": true
+   }
+  ]
+ },
  "dataset": {
   "clips": "3,357",
   "stems": "5,383",

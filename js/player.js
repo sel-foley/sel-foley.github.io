@@ -1,6 +1,8 @@
 /* Clip player: one muted <video> is the master clock; every lane (original mix,
    stems, model outputs) is a Web Audio source scheduled on the same context, so a
-   lane is always sample-aligned with the video. One lane is audible at a time.
+   lane shares the video clock. By default one lane is audible at a time.
+   The overview source-mix mode switches references exclusively and mixes selected
+   generated stems without restarting the video.
    Pressing a lane's play button stops every other player on the page and starts
    this row's video from 0 s together with that lane. */
 (function () {
@@ -117,18 +119,22 @@
   class ClipPlayer {
     constructor(root, sample, opts = {}) {
       this.root = root; this.sample = sample;
+      this.sourceMix = sample.mode === 'source-mix';
       this.duration = sample.duration || 10;
       this.lanes = []; this.playing = false; this.view = 'wave'; this.loop = false;
       this.startCtx = 0; this.startMedia = 0; this.lastResync = 0; this.raf = 0; this.rate = 1;
       this.wantSeek = null; this.primed = false; this.preloading = null;
       this.selected = Math.max(0, sample.tracks.findIndex(t => !t.pending));
       if (typeof opts.selected === 'number') this.selected = opts.selected;
+      this.activeLanes = new Set([this.selected]);
+      this.playRequest = 0;
       this.build();
     }
 
     build() {
       const s = this.sample, root = this.root;
       root.classList.add('mtp'); root.tabIndex = 0;
+      if (this.sourceMix) root.classList.add('mtp-source-mix');
 
       const vw = el('div', 'mtp-video-wrap');
       this.video = document.createElement('video');
@@ -151,14 +157,31 @@
       this.specBtn = el('button', 'mtp-tool', 'Spec'); this.specBtn.title = 'Spectrogram view';
       tr.append(this.playBtn, this.timeEl, this.timeline, this.durEl, this.loopBtn, this.specBtn);
       root.appendChild(tr);
+      if (this.sourceMix) {
+        const stage = el('div', 'mtp-stage');
+        stage.append(vw, tr); root.appendChild(stage);
+      }
+      this.timeline.tabIndex = 0;
+      this.timeline.setAttribute('role', 'slider');
+      this.timeline.setAttribute('aria-label', 'Video position');
+      this.timeline.setAttribute('aria-valuemin', '0');
+      this.timeline.setAttribute('aria-valuemax', String(this.duration));
+      this.timeline.addEventListener('keydown', ev => {
+        const delta = { ArrowLeft: -0.5, ArrowDown: -0.5, ArrowRight: 0.5, ArrowUp: 0.5 }[ev.key];
+        if (delta == null && ev.key !== 'Home' && ev.key !== 'End') return;
+        ev.preventDefault();
+        const t = ev.key === 'Home' ? 0 : ev.key === 'End' ? this.duration - 0.01 : this.video.currentTime + delta;
+        this.seek(Math.max(0, Math.min(this.duration - 0.01, t)));
+      });
 
       this.lanesEl = el('div', 'mtp-lanes');
       root.appendChild(this.lanesEl);
       s.tracks.forEach((t, i) => this.buildLane(t, i));
+      if (this.sourceMix) this.lanesEl.appendChild(el('p', 'mtp-mix-hint', 'Turn on several SelFoley tracks to mix them, or turn one off to remove that sound.'));
       if (s.hint) root.appendChild(el('div', 'mtp-hint', esc(s.hint)));
 
       // events
-      this.bigPlay.addEventListener('click', () => this.playLane(this.selected, true));
+      this.bigPlay.addEventListener('click', () => this.sourceMix ? this.play() : this.playLane(this.selected, true));
       this.video.addEventListener('click', () => this.toggle());
       this.playBtn.addEventListener('click', () => this.toggle());
       this.video.addEventListener('playing', () => { if (this.playing) this.startSources(this.video.currentTime); });
@@ -167,7 +190,12 @@
       this.video.addEventListener('error', () => this.retryVideo());
       ['loadeddata', 'canplay', 'canplaythrough', 'progress'].forEach(ev =>
         this.video.addEventListener(ev, () => this.applySeek()));
-      this.video.addEventListener('ended', () => { if (this.loop) { this.seek(0); } else { this.pause(); this.drawAll(this.duration); } });
+      this.video.addEventListener('ended', () => {
+        if (this.loop) {
+          this.seek(0);
+          this.video.play().catch(() => this.pause());
+        } else { this.pause(); this.drawAll(this.duration); }
+      });
       this.loopBtn.addEventListener('click', () => { this.loop = !this.loop; this.loopBtn.classList.toggle('on', this.loop); });
       this.specBtn.addEventListener('click', () => {
         this.view = this.view === 'wave' ? 'spec' : 'wave';
@@ -188,16 +216,21 @@
       this.ro = new ResizeObserver(() => this.resizeCanvases());
       this.ro.observe(root);
       this.applyGains(true);
+      this.updateLaneButtons();
       this.drawAll(0);
     }
 
     buildLane(t, i) {
+      if (this.sourceMix && t.group) this.lanesEl.appendChild(el('div', 'mtp-group', esc(t.group)));
       const L = { t, idx: i, buffer: null, gain: null, source: null, peaksCache: new Map(), specCache: new Map(), error: null, pending: !!t.pending || !t.audio };
       const lane = el('div', 'mtp-lane'); lane.style.setProperty('--lane', t.color || '#888');
       if (t.kind === 'gt') lane.classList.add('is-gt');
       if (t.highlight) lane.classList.add('is-highlight');
       if (L.pending) lane.classList.add('is-pending');
       L.el = lane;
+      if (this.sourceMix) lane.addEventListener('click', ev => {
+        if (!ev.target.closest('button, a, canvas')) this.playLane(i);
+      });
 
       const top = el('div', 'mtp-lane-top');
       const pb = el('button', 'lane-play'); pb.title = L.pending ? 'Output pending' : 'Play this lane with the video from 0 s';
@@ -209,7 +242,7 @@
       const label = el('div', 'mtp-lane-label');
       const sub = t.sub != null ? esc(t.sub) : (t.prompt ? `“${esc(t.prompt)}”` : '');
       label.innerHTML = `<span class="prompt" title="${esc(t.label)}">${esc(t.label)}</span>` + (sub ? `<span class="sub">${sub}</span>` : '');
-      if (!L.pending) label.addEventListener('click', () => this.playLane(i));
+      if (!L.pending && !this.sourceMix) label.addEventListener('click', () => this.playLane(i));
       top.appendChild(label);
 
       const ctrl = el('div', 'mtp-lane-ctrl');
@@ -263,6 +296,11 @@
      *  Pressing the button of the lane that is already playing pauses. */
     async playLane(i, force) {
       const L = this.lanes[i]; if (!L || L.pending) return;
+      if (this.sourceMix) {
+        this.select(i);
+        if (!this.playing && !this.root.classList.contains('is-loading')) await this.play();
+        return;
+      }
       if (this.playing && this.selected === i && !force) { this.pause(); return; }
       this.select(i);
       this.seek(0);
@@ -270,13 +308,14 @@
     }
     toggle() { this.playing ? this.pause() : this.play(); }
     async play() {
+      const request = ++this.playRequest;
       Engine.setActive(this);                       // stops any other player on the page
       this.primeVideo();
       this.root.classList.add('is-loading');
       await Engine.resume();
       await this.preload();
       this.root.classList.remove('is-loading');
-      if (Engine.active !== this) return;
+      if (Engine.active !== this || request !== this.playRequest) return;
       if (this.wantSeek == null && this.video.currentTime >= this.duration - 0.05) this.seek(0);
       this.playing = true; this.root.classList.add('is-playing');
       this.updateLaneButtons();
@@ -286,6 +325,8 @@
       cancelAnimationFrame(this.raf); this.tick();
     }
     pause() {
+      ++this.playRequest;
+      this.root.classList.remove('is-loading');
       this.playing = false; this.root.classList.remove('is-playing');
       this.video.pause(); this.stopSources(); cancelAnimationFrame(this.raf);
       this.updateLaneButtons();
@@ -378,11 +419,22 @@
     }
 
     // ── lane state ─────────────────────────────────────────────────────────
-    select(i) { if (this.lanes[i] && !this.lanes[i].pending) { this.selected = i; this.applyGains(); this.updateLaneButtons(); } }
+    isAudible(i) { return this.sourceMix ? this.activeLanes.has(i) : i === this.selected; }
+    select(i) {
+      if (!this.lanes[i] || this.lanes[i].pending) return;
+      if (this.sourceMix) {
+        if (!this.lanes[i].t.mixable || [...this.activeLanes].some(k => !this.lanes[k].t.mixable)) {
+          this.activeLanes = new Set([i]);
+        } else if (this.activeLanes.has(i)) {
+          if (this.activeLanes.size > 1) this.activeLanes.delete(i);
+        } else this.activeLanes.add(i);
+      }
+      this.selected = i; this.applyGains(); this.updateLaneButtons();
+    }
     applyGains(immediate) {
       const ctx = Engine.ctx;
       this.lanes.forEach((L, i) => {
-        const on = i === this.selected;
+        const on = this.isAudible(i);
         if (L.gain && ctx) {
           const param = L.gain.gain, g = on ? 1 : 0;
           param.cancelScheduledValues(ctx.currentTime);
@@ -394,7 +446,16 @@
       });
     }
     updateLaneButtons() {
-      this.lanes.forEach((L, i) => L.el.classList.toggle('is-live', this.playing && i === this.selected));
+      this.bigPlay.setAttribute('aria-label', 'Play video');
+      this.playBtn.setAttribute('aria-label', this.playing ? 'Pause' : 'Play');
+      this.lanes.forEach((L, i) => {
+        const on = this.isAudible(i);
+        L.el.classList.toggle('is-live', this.playing && on);
+        L.playBtn.setAttribute('aria-pressed', String(on));
+        const action = this.sourceMix ? (on && L.t.mixable && this.activeLanes.size > 1 ? 'Turn off' : 'Listen to') : 'Play';
+        L.playBtn.title = `${action} ${L.t.label}`;
+        L.playBtn.setAttribute('aria-label', L.playBtn.title);
+      });
     }
 
     // ── drawing ────────────────────────────────────────────────────────────
@@ -413,6 +474,8 @@
       const p = Math.min(1, Math.max(0, t / this.duration)) * 100;
       this.timeline.firstChild.style.width = p + '%'; this.timeline.lastChild.style.left = p + '%';
       this.timeEl.textContent = fmt(t);
+      this.timeline.setAttribute('aria-valuenow', t.toFixed(2));
+      this.timeline.setAttribute('aria-valuetext', `${t.toFixed(1)} of ${this.duration} seconds`);
     }
     drawLane(L, t) {
       const cv = L.canvas, W = cv.width, H = cv.height, g = L.g2d; if (!W || !H) return;

@@ -275,3 +275,44 @@ dialog.expand[open] { animation: expand-in .18s ease-out; }
 @keyframes shimmer { to { background-position: -200% 0; } }
 .mtp-hint { padding: 7px 10px; border-top: 1px solid var(--line); font-size: .78rem; color: var(--muted); background: var(--bg2); }
 .mtp-err { color: #c0392b; }
+
+/* Overview: one video, exclusive references, and three mixable generated stems. */
+.hero-demo { margin: 28px 0 32px; }
+.hero-demo h2 { margin: 0 0 6px; font-size: 1.3rem; letter-spacing: -.01em; }
+.hero-demo-intro { margin-bottom: 20px; color: var(--muted); }
+.hero-demo > .fine { margin: 12px 0 0; }
+.mtp-source-mix { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 28px; border: 0; border-radius: 0; overflow: visible; background: transparent; }
+.mtp-source-mix .mtp-stage { min-width: 0; }
+.mtp-source-mix .mtp-video-wrap { border-radius: var(--radius); overflow: hidden; }
+.mtp-source-mix .mtp-transport { padding: 8px 0; border: 0; gap: 10px; }
+.mtp-source-mix .mtp-play { width: 44px; height: 44px; }
+.mtp-source-mix .mtp-tool { min-height: 44px; min-width: 44px; }
+.mtp-source-mix .mtp-timeline { height: 8px; touch-action: none; }
+.mtp-source-mix .mtp-timeline::after { content: ''; position: absolute; inset: -18px 0; }
+.mtp-source-mix .mtp-lanes { gap: 6px; min-width: 0; }
+.mtp-group { color: var(--muted); font-size: .82rem; margin: 8px 0 2px; }
+.mtp-group:first-child { margin-top: 0; }
+.mtp-source-mix .mtp-lane { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(80px, 1fr); gap: 12px; align-items: center; border: 1px solid var(--line); border-radius: 10px; padding: 7px 10px; min-height: 62px; cursor: pointer; }
+.mtp-source-mix .mtp-lane:hover { border-color: var(--muted); }
+.mtp-source-mix .mtp-lane.is-selected { border-color: var(--lane); background: var(--bg2); }
+.mtp-source-mix .mtp-lane-top { margin: 0; gap: 6px; }
+.mtp-source-mix .mtp-lane-ctrl { display: none; }
+.mtp-source-mix .mtp-lane .lane-play { width: 44px; height: 44px; border: 0; border-radius: 6px; background: transparent; }
+.mtp-source-mix .mtp-lane .lane-play::before { width: 12px; height: 12px; left: 16px; top: 16px; margin: 0; border: 2px solid var(--lane); border-radius: 50%; background: transparent; }
+.mtp-source-mix .is-selected .lane-play::before { background: var(--lane); }
+.mtp-source-mix .mtp-lane-label .prompt { font-size: .88rem; white-space: normal; font-weight: 600; color: var(--text); }
+.mtp-source-mix .mtp-lane-label .sub { font-size: .75rem; white-space: normal; }
+.mtp-source-mix .mtp-lane-wave { height: 36px; }
+.mtp-source-mix .mtp-lane-wave canvas { background: transparent; }
+.mtp-mix-hint { font-size: .82rem; color: var(--muted); margin: 6px 0 0; }
+.mtp-source-mix :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (max-width: 860px) {
+  .mtp-source-mix { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+}
+@media (max-width: 420px) {
+  .mtp-source-mix .mtp-transport { gap: 6px; }
+  .mtp-source-mix .mtp-lane { gap: 6px; padding: 6px; grid-template-columns: minmax(0, 1.4fr) minmax(65px, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mtp-source-mix *, .mtp-source-mix *::before { animation: none; transition: none; }
+}
